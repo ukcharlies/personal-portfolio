@@ -11,23 +11,32 @@
 </head>
 <body>
    <nav class="flex justify-between items-center px-6 py-3 pl-1 bg-black fixed top-0 z-50 shadow-md w-full border-b-[#583c31] border-b-4 ">
-    <img src="../images/clear logo.png" alt="logo" class="w-36 h-auto ">
-    <img src="../images/menu.png" alt="menu icon" class="w-12">
+    <img src="../images/clear logo.png" alt="logo" class="w-36 h-auto">
+    <img src="../images/menu.png" alt="menu icon" class="w-12 md:hidden">
+    <div class="hidden md:flex md:justify-between space-x-6 text-[#583C31] px-2 py-2 text-lg">
+        <a href="" class="hover:text-[#A3977D]">Projects</a>
+        <a href="" class="hover:text-[#A3977D]">Resume</a>
+        <a href="" class="hover:text-[#A3977D]">Contact</a>
+    </div>
    </nav>
-   <header class="mt-28 bg-black text-[#A3977D] px-6 py-4">
-    <div class="bg-gradient-to-l from-[#583c31] to-[#A3977D] rounded-3xl justify-items-center w-2/3 mx-auto mb-2">
-        <img src="../images/clear-main.png" alt="my image" class="h-52 w-auto rounded-xl ">
+   <header class="mt-28 bg-black text-[#A3977D] px-6 py-4 md:flex md:gap-10 md:py-14 md:justify-between md:items-center">
+    <div class="bg-gradient-to-l from-[#583c31] to-[#A3977D] rounded-3xl justify-items-center w-2/3 mx-auto mb-2 md:size-96">
+        <img src="../images/clear-main.png" alt="my image" class="h-52 w-auto rounded-xl md:size-96 md:rounded-b-3xl object-contain">
     </div>
-    <div class="leading-10">
-        <p class="text-left text-3xl font-extrabold font-dotgothic tracking-normal">Hello,I'm Ukachi Charles a <span class="text-[#583c31] font-dotgothic">Software Engineer.</span></p>
-        
-        <p class="text-[10px] tracking-[2px] ">Crafting codes today,Shaping tomorows future</p>
+    <div>
+        <div class="leading-10 md:text-9xl md:leading-10">
+            <p class="text-left text-3xl font-extrabold font-dotgothic tracking-normal">Hello,I'm Ukachi Charles a <span class="text-[#583c31] font-dotgothic text-4xl">Software Engineer.</span></p>
+            
+            <p class="text-[10px] tracking-[2px] ">Crafting codes today,Shaping tomorows future</p>
+        </div>
+        <br>
+        <br class="hidden md:block">
+       <div class="flex justify-between items-center w-2/3 mx-auto md:mx-0 md:w-1/2 md:space-x-1">
+        <a href="" class="text-black bg-[#A3977D] px-5 py-2 rounded-xl hover:bg-[#362C20]  hover:text-white md:h-[70px] md:place-content-center md:text-xl ">Projects</a>
+        <a href="" class="border-[#A3977D] border px-5 py-2 rounded-xl hover:bg-[#362C20]  hover:text-white hover:border-none  md:text-xl md:text-center md:h-[70px] md:place-content-center text-">Get in touch</a>
+       </div> 
     </div>
-    <br>
-   <div class="flex justify-between items-center w-2/3 mx-auto ">
-    <a href="" class="text-black bg-[#A3977D] px-6 py-2 rounded-xl hover:bg-[#362C20]  hover:text-white">Projects</a>
-    <a href="" class="border-[#A3977D] border px-6 py-2 rounded-xl hover:bg-[#362C20]  hover:text-white hover:border-none ">Get in touch</a>
-   </div> 
+    
    </header>
    <section class="bg-[#583c31] py-5 sticky top-20">
     <div class="bg-black w-3/4 mx-auto rounded-2xl text-[#A3977D] px-3 py-4 flex-col gap-28">
@@ -44,8 +53,8 @@
     </div>
    </section>
    <section class="bg-black  relative top-0">
-    <div class="text-[#A3977D] px-4 py-4 ">
-        <div class="z-50 sticky block top-[119px]  bg-black py-2">
+    <div class="text-[#A3977D] px-4 py-4 md:flex ">
+        <div class=" sticky top-[118px]  bg-black py-3 md:top-[450px] md:w-full md:h-screen h-full">
             <p class="text-4xl  font-dotgothic tracking-widest uppercase text-center mb-5">my skill sets</p>
         </div>
         
@@ -84,7 +93,7 @@
                     <img src="../images/programmer.png" alt="icon" class="w-20 h-20 p-2">
                     <div class="px-2 ">
                         <p class="uppercase font-dotgothic text-xl font- mb-1 text-[#362C20]">senor dev</p>
-                        <p class="text-left text-sm font-thin mb-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam repudiandae rerum nam? Expedita, sunt? Iste eveniet libero labore error sunt recusandae vitae deleniti, fugiat magni provident possimus, sit voluptatum numquam!
+                        <p class="text-left text-sm font-thin mb-1 ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam repudiandae rerum nam? Expedita, sunt? Iste eveniet libero labore error sunt recusandae vitae deleniti, fugiat magni provident possimus, sit voluptatum numquam!
                         </p>
                         <a href=""class="uppercase  outline-1 hover:outline-dashed w-1/2 text-center ">more info !</a>
                     </div>
@@ -134,102 +143,103 @@
                 </div> <!-- Bottom-right element -->
             </div>
         </div>
-        
+    
     </div>
    </section>
-   <section class="bg-[#583c31] py-5 px-3 sticky">
+   <section class="bg-[#583c31] py-5 px-3 sticky lg:px-6">
     <p class="text-4xl  font-dotgothic tracking-widest uppercase text-left mb-5">Education</p>
-    <div class="flex-col w-3/4 mx-auto mb-3 shadow-md shadow-black">
+    <div class="w-3/4 mx-auto mb-3 shadow-md shadow-black lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent ">
         <div class="bg-black text-[#382E2C] px-3 py-4 rounded-lg text-center">
             <p class="font-bold font-dotgothic">2012-2018</p>
             <p class="text-xl">ALX</p>
             <p class="text-sm">Bsc Software Engineering</p>
     
         </div>
-        <p class="border-2 border-black border-t-0 py-2 px-1 text-center italic">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, blanditiis sequi nam, laborum consectetur quaerat sed illum possimus facilis laudantium, qui ratione nisi adipisci error odit exercitationem fugit incidunt sunt!</p>
+        <p class="border-2 border-black border-t-0 py-2 px-1 text-center italic lg:rounded-lg  border-t-black lg:border-t-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, blanditiis sequi nam, laborum consectetur quaerat sed illum possimus facilis laudantium, qui ratione nisi adipisci error odit exercitationem fugit incidunt sunt!</p>
     </div>
-    <div class="flex-col w-3/4 mx-auto shadow-md shadow-black">
+    <div class="w-3/4 mx-auto mb-3 shadow-md shadow-black lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm">
         <div class="bg-black text-[#382E2C] px-3 py-4 rounded-lg text-center">
             <p class="font-bold font-dotgothic">2012-2018</p>
             <p class="text-xl">ALX</p>
             <p class="text-sm">Bsc Software Engineering</p>
     
         </div>
-        <p class="border-2 border-black border-t-0 py-2 px-1 text-center italic">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, blanditiis sequi nam, laborum consectetur quaerat sed illum possimus facilis laudantium, qui ratione nisi adipisci error odit exercitationem fugit incidunt sunt!</p>
+        <p class="border-2 border-black border-t-0 py-2 px-1 text-center italic lg:rounded-lg  border-t-black lg:border-t-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, blanditiis sequi nam, laborum consectetur quaerat sed illum possimus facilis laudantium, qui ratione nisi adipisci error odit exercitationem fugit incidunt sunt!</p>
     </div>
+    
     <p class="text-4xl  font-dotgothic tracking-widest uppercase text-right mt-5 mb-5">Certification</p>
-    <div class="flex-col w-3/4 mx-auto shadow-md shadow-black rounded-lg bg-[#382E2C] mb-4">
-        <div class="bg-[#382E2C] text-balance px-3 py-4 rounded-lg text-center">
+    <div class="w-3/4 mx-auto shadow-md shadow-black rounded-lg bg-[#382E2C] mb-4 lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent">
+        <div class="bg-[#382E2C] px-3 py-4 rounded-t-lg text-center lg:rounded-lg">
             <p class="font-bold font-dotgothic">2012-2018</p>
             <p class="text-xl">ALX</p>
             <p class="text-sm">Bsc Software Engineering</p>
     
         </div>
-        <p class="border-2 border-black border-t-0 py-2 px-1 text-center bg-black text-[#382E2C] rounded-b-lg italic">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, blanditiis sequi nam, laborum consectetur quaerat sed illum possimus facilis laudantium, qui ratione nisi adipisci error odit exercitationem fugit incidunt sunt!</p>
+        <p class="border-2 border-black border-t-0 py-2 px-1 text-center bg-black text-[#382E2C] rounded-b-lg italic lg:rounded-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, blanditiis sequi nam, laborum consectetur quaerat sed illum possimus facilis laudantium, qui ratione nisi adipisci error odit exercitationem fugit incidunt sunt!</p>
     </div>
-    <div class="flex-col w-3/4 mx-auto shadow-md shadow-black rounded-lg bg-[#382E2C] mb-4">
-        <div class="bg-[#382E2C] text-balance px-3 py-4 rounded-lg text-center">
+    <div class="w-3/4 mx-auto shadow-md shadow-black rounded-lg bg-[#382E2C] mb-4 lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent">
+        <div class="bg-[#382E2C] px-3 py-4 rounded-t-lg text-center lg:rounded-lg">
             <p class="font-bold font-dotgothic">2012-2018</p>
             <p class="text-xl">ALX</p>
             <p class="text-sm">Bsc Software Engineering</p>
     
         </div>
-        <p class="border-2 border-black border-t-0 py-2 px-1 text-center bg-black text-[#382E2C] rounded-b-lg italic">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, blanditiis sequi nam, laborum consectetur quaerat sed illum possimus facilis laudantium, qui ratione nisi adipisci error odit exercitationem fugit incidunt sunt!</p>
+        <p class="border-2 border-black border-t-0 py-2 px-1 text-center bg-black text-[#382E2C] rounded-b-lg italic lg:rounded-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, blanditiis sequi nam, laborum consectetur quaerat sed illum possimus facilis laudantium, qui ratione nisi adipisci error odit exercitationem fugit incidunt sunt!</p>
     </div>
    </section>
-   <section class="bg-black relative text-[#A3977D] top-0 ">
-    <div class="  bg-black py-2 sticky top-28">
+   <section class="bg-black relative text-[#A3977D] top-0 md:flex md:space-x-2">
+    <div class="  bg-black py-2 sticky top-28 md:w-full  px-2 md:top-[120px] md:h-full">
         <p class="text-4xl  font-dotgothic tracking-widest uppercase text-center mb-5 ">Work experience </p>
     </div>
-    <div>
-        <div class="capitalize px-3 py-2">
-            <img src="../images/programmer.png" alt="" class="h-10">
+    <div class="flex-col px-4">
+        <div class="capitalize px-3 py-2 md:justify-self-center md:text-3xl ">
+            <img src="../images/programmer.png" alt="" class="h-10 md:h-24">
             <p class="text-sm font-thin">January 2018 - present</p>
             <p class="font-dotgothic text-xl font-bold tracking-widest">Senior Software Engineer /</p>
             <p class="px-2 py-1 border inline-block w-2/3 border-[#A3977D] border-dotted bg-[#A3977D] text-black font-extrabold rounded-lg">dash ltc</p>
         </div>
-        <ul class="px-3 py-2">
+        <ul class="px-3 py-2 md:px-3 md:">
             <div class="w-72 h-1 bg-[#362C20] my-2 mx-auto"></div>
-            <li class="list-item list-disc list-inside text-center">
+            <li class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt eum officiis repellendus tenetur odio. Dolorum dolor quo sed unde sequi earum ad, rerum nemo? Dignissimos veniam distinctio praesentium reiciendis sequi.
                 Recusandae quisquam iste debitis beatae quidem voluptatibus consequatur eius expedita modi, molestias cum error deserunt? Dolor, similique accusantium itaque rem, perferendis ad unde natus repellendus odio quo eum voluptatibus nobis?
             </li>
             <div class="w-72 h-1 bg-[#362C20] my-2 mx-auto"></div>
-            <li class="list-item list-disc list-inside text-center">
+            <li class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt eum officiis repellendus tenetur odio. Dolorum dolor quo sed unde sequi earum ad, rerum nemo? Dignissimos veniam distinctio praesentium reiciendis sequi.
                 Recusandae quisquam iste debitis beatae quidem voluptatibus consequatur eius expedita modi, molestias cum error deserunt? Dolor, similique accusantium itaque rem, perferendis ad unde natus repellendus odio quo eum voluptatibus nobis?
             </li>
-            <div class="w-72 h-1 bg-[#362C20] my-2 mx-auto"></div>
+            <div class="w-72 h-1 bg-[#362C20] my-2 mx-auto md:mb-4"></div>
         </ul>
-    </div>
-    <div>
-        <div class="capitalize px-3 py-2">
-            <img src="../images/programmer.png" alt="" class="h-10">
+        <div class="capitalize px-3 py-2 md:justify-self-center md:text-3xl ">
+            <img src="../images/programmer.png" alt="" class="h-10 md:h-24">
             <p class="text-sm font-thin">January 2018 - present</p>
             <p class="font-dotgothic text-xl font-bold tracking-widest">Senior Software Engineer /</p>
             <p class="px-2 py-1 border inline-block w-2/3 border-[#A3977D] border-dotted bg-[#A3977D] text-black font-extrabold rounded-lg">dash ltc</p>
         </div>
-        <ul class="px-3 py-2">
+        <ul class="px-3 py-2 md:px-3">
             <div class="w-72 h-1 bg-[#362C20] my-2 mx-auto"></div>
-            <li class="list-item list-disc list-inside text-center">
+            <li class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt eum officiis repellendus tenetur odio. Dolorum dolor quo sed unde sequi earum ad, rerum nemo? Dignissimos veniam distinctio praesentium reiciendis sequi.
                 Recusandae quisquam iste debitis beatae quidem voluptatibus consequatur eius expedita modi, molestias cum error deserunt? Dolor, similique accusantium itaque rem, perferendis ad unde natus repellendus odio quo eum voluptatibus nobis?
             </li>
             <div class="w-72 h-1 bg-[#362C20] my-2 mx-auto"></div>
-            <li class="list-item list-disc list-inside text-center">
+            <li class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt eum officiis repellendus tenetur odio. Dolorum dolor quo sed unde sequi earum ad, rerum nemo? Dignissimos veniam distinctio praesentium reiciendis sequi.
                 Recusandae quisquam iste debitis beatae quidem voluptatibus consequatur eius expedita modi, molestias cum error deserunt? Dolor, similique accusantium itaque rem, perferendis ad unde natus repellendus odio quo eum voluptatibus nobis?
             </li>
-            <div class="w-72 h-1 bg-[#362C20] my-2 mx-auto"></div>
+            <div class="w-72 h-1 bg-[#362C20] my-2 mx-auto md:mb-4"></div>
         </ul>
+        
     </div>
+    
    </section>
    <section class="bg-black relative text-[#A3977D] top-0 ">
     <div class="  bg-black py-2 sticky top-28">
-        <p class="text-4xl  font-dotgothic tracking-widest uppercase text-center mb-5 ">contact me </p>
+        <p class="text-4xl  font-dotgothic tracking-widest uppercase text-center mt-5 mb-5 ">contact me </p>
     </div>
     <div class="">
-        <div class="px-3 py-2 border-2 border-[#362C20] w-[70vw] mx-auto rounded-xl items-center justify-items-center ">
+        <div class="px-3 py-2 border-2 border-[#362C20] w-[70vw] mx-auto rounded-xl items-center justify-items-center lg:w-[40vw] ">
             <img src="../images/clear logo.png" alt="" class="w-56">
             <p class="font-dotgothic text-3xl font-thin pb-4">Get in touch</p>
             <p class="text-sm font-bold mb-1">lets work together</p>
@@ -237,13 +247,13 @@
                     <input type="text" placeholder="name" class="rounded-lg px-2 py-2 text-[#A3977D] outline-4 outline-[#A3977D]">
                     <input type="email" placeholder="email" class="rounded-lg px-2 py-2 text-[#A3977D] outline-4 outline-[#A3977D]">
                     <input type="text" placeholder="message" class="rounded-lg px-2 py-2 text-[#A3977D] outline-4 outline-[#A3977D] ">
-                    <button class="bg-[#A3977D] text-black w-1/2 mx-auto rounded-lg font-bold p-2  hover:bg-[#382E2C]">Submit</button>
+                    <button class="bg-[#A3977D] text-black w-1/2 mx-auto rounded-lg font-bold p-2  hover:bg-[#382E2C] hover:text-white">Submit</button>
                 </form>
         </div>
-        <div class=" bg-[#A3977D] rounded-t-3xl p-2 text-black text-center mt-5 font-dotgothic tracking-wider ">
+        <div class=" bg-[#A3977D] rounded-t-3xl p-2 text-black text-center mt-5 font-dotgothic tracking-wider lg:absolute lg:rounded-full lg:z-50 bottom-[-70px] right-[12rem]">
             <a href="mailto:ukcharlies@gmail.com" class="capitalize block hover:underline underline-offset-4" >reach my mail</a>
             <a href="tel: +2348065192105" class="hover:underline underline-offset-4">Call me on 08065192105</a>
-            <p class="capitalize">14 astro world street, oke-afa isolo, lagos.</p>
+            <p class="capitalize lg:hidden">14 astro world street, oke-afa isolo, lagos.</p>
             <div class=".symbols flex py-6 justify-between w-1/3 mx-auto ">
                 <a href=""><img src="../images/linkedin.png" alt="" class="w-14 p-2 hover:border-b-4 hover:border-[#362C20]"></a> 
                 <a href=""><img src="../images/github-sign.png" alt="" class="w-14 p-2 hover:border-b-4 hover:border-[#362C20]"></a> 
@@ -251,7 +261,7 @@
         </div>
     </div>
     </section>
-    <footer class="bg-black text-[#A3977D] py-5 px-3 sticky overflow-hidden whitespace-nowrap">
+    <footer class="bg-black text-[#A3977D] py-5 px-3 sticky overflow-hidden whitespace-nowrap lg:pt-16">
         <p class="text-4xl  font-dotgothic tracking-widest uppercase text-center mb-5  inline-block animate-scroll w-full">footer</p>
         <p class="capitalize text-center">copyright &copy; your website 2024</p>
         <div class="flex justify-between items-center w-1/2 mx-auto capitalize pt-4">
