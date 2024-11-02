@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./output.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    
     <title>home</title>
 </head>
-<body>
+<body id="home">
    <nav class="flex justify-between items-center px-6 py-3 pl-1 bg-black fixed top-0 z-50 shadow-md w-full border-b-[#583c31] border-b-4 ">
-    <img src="../images/clear logo.png" alt="logo" class="w-36 h-auto">
-    <img src="../images/menu.png" alt="menu icon" class="w-12 md:hidden">
-    <div class="hidden md:flex md:justify-between space-x-6 text-[#583C31] px-2 py-2 text-lg">
+   <a href="#home"><img src="../images/clear logo.png" alt="logo" class="w-36 h-auto">
+    <img src="../images/menu.png" alt="menu icon" class="w-12 lg:hidden"></a> 
+    <div class="hidden lg:flex lg:justify-between space-x-6 text-[#583C31] px-2 py-2 text-lg">
         <a href="" class="hover:text-[#A3977D]">Projects</a>
-        <a href="" class="hover:text-[#A3977D]">Resume</a>
-        <a href="" class="hover:text-[#A3977D]">Contact</a>
+        <a href="#resume" class="hover:text-[#A3977D]">Resume</a>
+        <a href="#contactMe" class="hover:text-[#A3977D]">Contact</a>
     </div>
    </nav>
-   <header class="mt-28 bg-black text-[#A3977D] px-6 py-4 md:flex md:gap-10 md:py-14 md:justify-between md:items-center">
+   <header class="mt-28 bg-black text-[#A3977D] px-6 py-4 md:flex md:gap-10 md:py-14 md:justify-between md:items-center" >
     <div class="bg-gradient-to-l from-[#583c31] to-[#A3977D] rounded-3xl justify-items-center w-2/3 mx-auto mb-2 md:size-96">
         <img src="../images/clear-main.png" alt="my image" class="h-52 w-auto rounded-xl md:size-96 md:rounded-b-3xl object-contain">
     </div>
@@ -187,7 +185,7 @@
         <p class="border-2 border-black border-t-0 py-2 px-1 text-center bg-black text-[#382E2C] rounded-b-lg italic lg:rounded-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, blanditiis sequi nam, laborum consectetur quaerat sed illum possimus facilis laudantium, qui ratione nisi adipisci error odit exercitationem fugit incidunt sunt!</p>
     </div>
    </section>
-   <section class="bg-black relative text-[#A3977D] top-0 md:flex md:space-x-2">
+   <section class="bg-black relative text-[#A3977D] top-0 md:flex md:space-x-2" id="resume">
     <div class="  bg-black py-2 sticky top-28 md:w-full  px-2 md:top-[120px] md:h-full">
         <p class="text-4xl  font-dotgothic tracking-widest uppercase text-center mb-5 ">Work experience </p>
     </div>
@@ -234,7 +232,7 @@
     </div>
     
    </section>
-   <section class="bg-black relative text-[#A3977D] top-0 ">
+   <section class="bg-black relative text-[#A3977D] top-0" id="contactMe">
     <div class="  bg-black py-2 sticky top-28">
         <p class="text-4xl  font-dotgothic tracking-widest uppercase text-center mt-5 mb-5 ">contact me </p>
     </div>
@@ -250,7 +248,7 @@
                     <button class="bg-[#A3977D] text-black w-1/2 mx-auto rounded-lg font-bold p-2  hover:bg-[#382E2C] hover:text-white">Submit</button>
                 </form>
         </div>
-        <div class=" bg-[#A3977D] rounded-t-3xl p-2 text-black text-center mt-5 font-dotgothic tracking-wider lg:absolute lg:rounded-full lg:z-50 bottom-[-70px] right-[12rem]">
+        <div class=" bg-[#A3977D] rounded-t-3xl p-2 text-black text-center mt-5 font-dotgothic tracking-wider lg:absolute lg:rounded-full lg:z-50 bottom-[-70px] right-[12rem] lg:px-2 lg:leading-7">
             <a href="mailto:ukcharlies@gmail.com" class="capitalize block hover:underline underline-offset-4" >reach my mail</a>
             <a href="tel: +2348065192105" class="hover:underline underline-offset-4">Call me on 08065192105</a>
             <p class="capitalize lg:hidden">14 astro world street, oke-afa isolo, lagos.</p>
