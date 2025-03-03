@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./output.css">
-    <title>Projects</title>
-</head>
-<body>
-    <nav class="flex justify-between items-center px-6 py-3 pl-1 bg-black fixed top-0 z-50 shadow-md w-full border-b-[#583c31] border-b-4 ">
-        <a href="index.html"><img src="../images/clear logo.png" alt="logo" class="w-36 h-auto"></a>
-        <img src="../images/menu.png" alt="menu icon" class="w-12 lg:hidden">
-        <div class="hidden lg:flex lg:justify-between space-x-6 text-[#583C31] px-2 py-2 text-lg">
-            <a href="projects.html" class="hover:text-[#A3977D]">Projects</a>
-            <a href="#resume" class="hover:text-[#A3977D]">Resume</a>
-            <a href="#contactMe" class="hover:text-[#A3977D]">Contact</a>
-        </div>
-    </nav>
-    <div class="relative flex items-center justify-center h-screen bg-gray-100">
-        <div id="card-container" class="flex transition-transform duration-300">
-          <!-- Card 1 -->
-          <div class="min-w-full p-8 bg-white rounded-lg shadow-md">
-            <h2 class="text-xl font-semibold">Project 1</h2>
-            <p class="mt-4 text-gray-600">Details about Project 1...</p>
-          </div>
-          <!-- Card 2 -->
-          <div class="min-w-full p-8 bg-white rounded-lg shadow-md">
-            <h2 class="text-xl font-semibold">Project 2</h2>
-            <p class="mt-4 text-gray-600">Details about Project 2...</p>
-          </div>
-          <!-- Card 3 -->
-          <div class="min-w-full p-8 bg-white rounded-lg shadow-md">
-            <h2 class="text-xl font-semibold">Project 3</h2>
-            <p class="mt-4 text-gray-600">Details about Project 3...</p>
-          </div>
-        </div>
-      
-        <!-- Navigation Buttons -->
-        <button onclick="prevCard()" class="absolute left-5 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded">
-          &larr;
-        </button>
-        <button onclick="nextCard()" class="absolute right-5 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded">
-          &rarr;
-        </button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+      function toggleTheme() {
+        document.documentElement.classList.toggle("dark");
+      }
+    </script>
+  </head>
+  <body
+    class="flex flex-col items-center justify-center h-screen bg-black text-gray-300 dark:bg-gray-100 dark:text-gray-800"
+  >
+    <nav
+      class="flex justify-between items-center px-6 py-3 pl-1 bg-black fixed top-0 z-50 shadow-md w-full border-b-[#583c31] border-b-4"
+    >
+      <a href="index.html" class="flex items-center space-x-2"
+        ><img src="../images/clear logo.png" alt="logo" class="w-36 h-auto"
+      /></a>
+      <img src="../images/menu.png" alt="menu icon" class="w-12 lg:hidden" />
+      <div
+        class="hidden lg:flex lg:justify-between space-x-6 text-[#583C31] px-2 py-2 text-lg"
+      >
+        <a href="projects.html" class="hover:text-[#A3977D]">Projects</a>
+        <a href="#resume" class="hover:text-[#A3977D]">Resume</a>
+        <a href="#contactMe" class="hover:text-[#A3977D]">Contact</a>
       </div>
-      
-</body>
+    </nav>
+    <div
+      class="w-[90vw] p-1 text-black bg-[#A3977D] rounded-md mx-auto flex flex-col items-center dark:bg-[#D1C4A7]"
+    >
+      <svg
+        class="w-12 h-12 animate-spin text-black dark:text-gray-800"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3v4m0 4h.01"
+        />
+      </svg>
+      <p class="mt-4 text-xl font-semibold">Coming Soon...</p>
+      <button
+        onclick="toggleTheme()"
+        class="mt-4 px-4 py-2 bg-gray-800 text-white rounded-md dark:bg-gray-300 dark:text-black"
+      >
+        Toggle Mode
+      </button>
+    </div>
+  </body>
 </html>
