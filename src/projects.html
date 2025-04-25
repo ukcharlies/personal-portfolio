@@ -3,59 +3,529 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coming Soon</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-      };
-      function toggleTheme() {
-        document.documentElement.classList.toggle("dark");
-      }
-    </script>
+    <title>My Projects</title>
+    <link rel="stylesheet" href="output.css" />
   </head>
-  <body
-    class="flex flex-col items-center justify-center h-screen bg-black text-gray-300 dark:bg-gray-100 dark:text-gray-800"
-  >
+  <body class="bg-black text-[#A3977D]">
     <nav
       class="flex justify-between items-center px-6 py-3 pl-1 bg-black fixed top-0 z-50 shadow-md w-full border-b-[#583c31] border-b-4"
     >
-      <a href="../index.html" class="flex items-center space-x-2"
+      <a href="../index.html"
         ><img src="../images/clear logo.png" alt="logo" class="w-36 h-auto"
       /></a>
       <img src="../images/menu.png" alt="menu icon" class="w-12 lg:hidden" />
       <div
         class="hidden lg:flex lg:justify-between space-x-6 text-[#583C31] px-2 py-2 text-lg"
       >
-        <a href="projects.html" class="hover:text-[#A3977D]">Projects</a>
+        <a href="../index.html" class="hover:text-[#A3977D]">Home</a>
         <a href="#resume" class="hover:text-[#A3977D]">Resume</a>
-        <a href="#contactMe" class="hover:text-[#A3977D]">Contact</a>
+        <a href="../index.html#contactMe" class="hover:text-[#A3977D]"
+          >Contact</a
+        >
       </div>
     </nav>
-    <div
-      class="w-[90vw] p-1 text-black bg-[#A3977D] rounded-md mx-auto flex flex-col items-center dark:bg-[#D1C4A7]"
-    >
-      <svg
-        class="w-12 h-12 animate-spin text-black dark:text-gray-800"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
+
+    <header class="container mx-auto pt-28 px-4 pb-8">
+      <h1
+        class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-6"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3v4m0 4h.01"
-        />
-      </svg>
-      <p class="mt-4 text-xl font-semibold">Coming Soon...</p>
-      <button
-        onclick="toggleTheme()"
-        class="mt-4 px-4 py-2 bg-gray-800 text-white rounded-md dark:bg-gray-300 dark:text-black"
-      >
-        Toggle Mode
-      </button>
-    </div>
+        My Projects
+      </h1>
+      <p class="text-center max-w-2xl mx-auto mb-8">
+        Here's a collection of projects I've worked on, showcasing my skills in
+        frontend development, backend integration, and full-stack applications.
+      </p>
+      <div id="resume" class="flex justify-center mb-12">
+        <a
+          href="../docs/resume.pdf"
+          download
+          class="bg-[#A3977D] text-black px-5 py-3 rounded-xl hover:bg-[#362C20] hover:text-white flex items-center space-x-2"
+        >
+          <span>Download Resume</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            />
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 pb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Portfolio Website Card -->
+        <div class="project-card" tabindex="0">
+          <div class="card-inner">
+            <!-- Front -->
+            <div class="card-front">
+              <img
+                src="../images/programmer.png"
+                alt="Portfolio Website"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h2 class="text-xl font-dotgothic font-bold mb-2">
+                Portfolio Website
+              </h2>
+              <p class="text-sm mb-4">
+                Built with HTML, Tailwind & JavaScript.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >HTML5</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Tailwind CSS</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >JavaScript</span
+                >
+              </div>
+            </div>
+
+            <!-- Back -->
+            <div class="card-back">
+              <div>
+                <h3 class="text-xl font-dotgothic font-bold mb-2">
+                  Project Details
+                </h3>
+                <p class="text-sm mb-3">
+                  Responsive portfolio site showcasing work, built from scratch.
+                </p>
+                <ul class="list-disc list-inside text-sm">
+                  <li>Fully responsive</li>
+                  <li>Custom animations</li>
+                  <li>SEO & accessibility focused</li>
+                </ul>
+              </div>
+              <div class="flex justify-between pt-4">
+                <a
+                  href="https://github.com/ukcharlies/personal-portfolio"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >GitHub</a
+                >
+                <a
+                  href="../index.html"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >Live Demo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- E-commerce Platform Card -->
+        <div class="project-card" tabindex="0">
+          <div class="card-inner">
+            <!-- Front -->
+            <div class="card-front">
+              <img
+                src="../images/programmer.png"
+                alt="E-commerce Platform"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h2 class="text-xl font-dotgothic font-bold mb-2">
+                E-commerce Platform
+              </h2>
+              <p class="text-sm mb-4">
+                Full-stack online store with secure checkout.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >React</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Node.js</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Express</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >PostgreSQL</span
+                >
+              </div>
+            </div>
+
+            <!-- Back -->
+            <div class="card-back">
+              <div>
+                <h3 class="text-xl font-dotgothic font-bold mb-2">
+                  Project Details
+                </h3>
+                <p class="text-sm mb-3">
+                  Full-featured e-commerce platform with secure authentication
+                  and payment processing.
+                </p>
+                <ul class="list-disc list-inside text-sm">
+                  <li>User authentication</li>
+                  <li>Product management</li>
+                  <li>Shopping cart functionality</li>
+                  <li>Secure checkout</li>
+                </ul>
+              </div>
+              <div class="flex justify-between pt-4">
+                <a
+                  href="https://github.com/ukcharlies"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >GitHub</a
+                >
+                <a
+                  href="#"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >Live Demo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- API Development Card -->
+        <div class="project-card" tabindex="0">
+          <div class="card-inner">
+            <!-- Front -->
+            <div class="card-front">
+              <img
+                src="../images/programmer.png"
+                alt="API Development"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h2 class="text-xl font-dotgothic font-bold mb-2">
+                RESTful API Service
+              </h2>
+              <p class="text-sm mb-4">
+                Secure, high-performance API for data management.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Node.js</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Express</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >PostgreSQL</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >JWT</span
+                >
+              </div>
+            </div>
+
+            <!-- Back -->
+            <div class="card-back">
+              <div>
+                <h3 class="text-xl font-dotgothic font-bold mb-2">
+                  Project Details
+                </h3>
+                <p class="text-sm mb-3">
+                  Developed a RESTful API service with comprehensive
+                  documentation and security features.
+                </p>
+                <ul class="list-disc list-inside text-sm">
+                  <li>JWT authentication</li>
+                  <li>Role-based access control</li>
+                  <li>Comprehensive endpoints</li>
+                  <li>Swagger documentation</li>
+                </ul>
+              </div>
+              <div class="flex justify-between pt-4">
+                <a
+                  href="https://github.com/ukcharlies"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >GitHub</a
+                >
+                <a
+                  href="#"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >API Docs</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Application Card -->
+        <div class="project-card" tabindex="0">
+          <div class="card-inner">
+            <!-- Front -->
+            <div class="card-front">
+              <img
+                src="../images/programmer.png"
+                alt="Security Application"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h2 class="text-xl font-dotgothic font-bold mb-2">
+                Cybersecurity Tool
+              </h2>
+              <p class="text-sm mb-4">
+                Security monitoring and vulnerability assessment application.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Python</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Flask</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >SIEM</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Security</span
+                >
+              </div>
+            </div>
+
+            <!-- Back -->
+            <div class="card-back">
+              <div>
+                <h3 class="text-xl font-dotgothic font-bold mb-2">
+                  Project Details
+                </h3>
+                <p class="text-sm mb-3">
+                  Developed a security monitoring tool with vulnerability
+                  assessment capabilities.
+                </p>
+                <ul class="list-disc list-inside text-sm">
+                  <li>Real-time monitoring</li>
+                  <li>Threat detection</li>
+                  <li>Security analytics</li>
+                  <li>Risk assessment</li>
+                </ul>
+              </div>
+              <div class="flex justify-between pt-4">
+                <a
+                  href="https://github.com/ukcharlies"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >GitHub</a
+                >
+                <a
+                  href="#"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >Demo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend UI Framework Card -->
+        <div class="project-card" tabindex="0">
+          <div class="card-inner">
+            <!-- Front -->
+            <div class="card-front">
+              <img
+                src="../images/programmer.png"
+                alt="UI Framework"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h2 class="text-xl font-dotgothic font-bold mb-2">
+                UI Component Library
+              </h2>
+              <p class="text-sm mb-4">
+                Custom React component library with Tailwind styling.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >React</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Tailwind CSS</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Storybook</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Accessibility</span
+                >
+              </div>
+            </div>
+
+            <!-- Back -->
+            <div class="card-back">
+              <div>
+                <h3 class="text-xl font-dotgothic font-bold mb-2">
+                  Project Details
+                </h3>
+                <p class="text-sm mb-3">
+                  Developed a reusable component library with comprehensive
+                  documentation.
+                </p>
+                <ul class="list-disc list-inside text-sm">
+                  <li>Accessible components</li>
+                  <li>Responsive design</li>
+                  <li>Themeable system</li>
+                  <li>Storybook integration</li>
+                </ul>
+              </div>
+              <div class="flex justify-between pt-4">
+                <a
+                  href="https://github.com/ukcharlies"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >GitHub</a
+                >
+                <a
+                  href="#"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >Components</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Application Card -->
+        <div class="project-card" tabindex="0">
+          <div class="card-inner">
+            <!-- Front -->
+            <div class="card-front">
+              <img
+                src="../images/programmer.png"
+                alt="Mobile App"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h2 class="text-xl font-dotgothic font-bold mb-2">
+                Mobile Task Manager
+              </h2>
+              <p class="text-sm mb-4">
+                Cross-platform productivity application with cloud sync.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >React Native</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Firebase</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Redux</span
+                >
+                <span class="bg-[#A3977D] text-black px-2 py-1 rounded text-xs"
+                  >Cross-platform</span
+                >
+              </div>
+            </div>
+
+            <!-- Back -->
+            <div class="card-back">
+              <div>
+                <h3 class="text-xl font-dotgothic font-bold mb-2">
+                  Project Details
+                </h3>
+                <p class="text-sm mb-3">
+                  Developed a cross-platform mobile task management application
+                  with cloud synchronization.
+                </p>
+                <ul class="list-disc list-inside text-sm">
+                  <li>Real-time updates</li>
+                  <li>Offline functionality</li>
+                  <li>Push notifications</li>
+                  <li>Cross-device sync</li>
+                </ul>
+              </div>
+              <div class="flex justify-between pt-4">
+                <a
+                  href="https://github.com/ukcharlies"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >GitHub</a
+                >
+                <a
+                  href="#"
+                  class="bg-[#362C20] text-[#A3977D] px-3 py-1 rounded hover:bg-black"
+                  >App Store</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section class="bg-[#583c31] py-12 px-6">
+      <div class="container mx-auto">
+        <h2
+          class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-8"
+        >
+          Let's Work Together
+        </h2>
+        <p class="text-center max-w-2xl mx-auto mb-10">
+          I'm always open to new projects and collaborations. Whether you need a
+          complete web application, API development, or UI enhancements, I'd
+          love to help bring your vision to life.
+        </p>
+        <div class="flex justify-center space-x-6">
+          <a
+            href="../index.html#contactMe"
+            class="bg-[#A3977D] text-black px-5 py-3 rounded-xl hover:bg-[#362C20] hover:text-white"
+          >
+            Contact Me
+          </a>
+          <a
+            href="https://github.com/ukcharlies"
+            class="border-[#A3977D] border px-5 py-3 rounded-xl hover:bg-[#362C20] hover:text-white hover:border-none"
+          >
+            View GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-[#A3977D] py-8 px-6">
+      <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <img
+              src="../images/clear logo.png"
+              alt="logo"
+              class="w-36 h-auto mb-4"
+            />
+            <p>Crafting code today, shaping tomorrow's future</p>
+          </div>
+          <div class="flex space-x-6">
+            <a href="https://www.linkedin.com/in/chuka-ukachi-70b525262/">
+              <img
+                src="../images/linkedin.png"
+                alt="LinkedIn"
+                class="w-10 h-10 hover:opacity-80"
+              />
+            </a>
+            <a href="https://github.com/ukcharlies">
+              <img
+                src="../images/github-sign.png"
+                alt="GitHub"
+                class="w-10 h-10 hover:opacity-80"
+              />
+            </a>
+            <a href="mailto:ukcharlies@gmail.com">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10 text-[#A3977D] hover:text-[#583c31]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="border-t border-[#583c31] mt-6 pt-6 text-center">
+          <p>© 2024 Ukachi Charles. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

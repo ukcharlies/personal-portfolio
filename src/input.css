@@ -1,6 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Card flip styles */
+@layer components {
+  .project-card {
+    @apply relative h-[420px] w-full cursor-pointer;
+  }
+
+  .card-inner {
+    @apply relative w-full h-full;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .project-card:hover .card-inner,
+  .project-card:focus-within .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-front,
+  .card-back {
+    @apply absolute w-full h-full rounded-xl;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .card-front {
+    @apply bg-[#382E2C] p-5 flex flex-col overflow-hidden;
+  }
+
+  .card-back {
+    @apply bg-[#A3977D] text-[#362C20] p-5 flex flex-col justify-between;
+    transform: rotateY(180deg);
+  }
+}
