@@ -4,6 +4,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme variables */
+@layer base {
+  :root {
+    --color-primary: #a3977d;
+    --color-dark: #000000;
+    --color-accent: #583c31;
+    --card-front-bg: #382e2c;
+    --card-back-bg: #a3977d;
+    --card-back-text: #362c20;
+  }
+
+  .light {
+    --color-primary: #583c31;
+    --color-dark: #f8f8f8;
+    --color-accent: #a3977d;
+    --card-front-bg: #d6c8b1;
+    --card-back-bg: #583c31;
+    --card-back-text: #f8f8f8;
+  }
+
+  .dark {
+    --color-primary: #a3977d;
+    --color-dark: #000000;
+    --color-accent: #583c31;
+    --card-front-bg: #382e2c;
+    --card-back-bg: #a3977d;
+    --card-back-text: #362c20;
+  }
+}
+
 /* Card flip styles */
 @layer components {
   .project-card {
@@ -29,11 +59,46 @@
   }
 
   .card-front {
-    @apply bg-[#382E2C] p-5 flex flex-col overflow-hidden;
+    background-color: var(--card-front-bg);
+    @apply p-5 flex flex-col overflow-hidden;
   }
 
   .card-back {
-    @apply bg-[#A3977D] text-[#362C20] p-5 flex flex-col justify-between;
+    background-color: var(--card-back-bg);
+    color: var(--card-back-text);
+    @apply p-5 flex flex-col justify-between;
     transform: rotateY(180deg);
+  }
+
+  .bg-dark {
+    background-color: var(--color-dark);
+  }
+
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+
+  .text-primary {
+    color: var(--color-primary);
+  }
+
+  .text-dark {
+    color: var(--color-dark);
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .border-primary {
+    border-color: var(--color-primary);
+  }
+
+  .border-accent {
+    border-color: var(--color-accent);
   }
 }
