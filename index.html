@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/output.css" />
+    <script src="src/theme.js" defer></script>
 
     <title>home</title>
   </head>
   <body id="home">
     <nav
-      class="flex justify-between items-center px-6 py-3 pl-1 bg-black fixed top-0 z-1000 shadow-md w-full border-b-[#583c31] border-b-4"
+      class="flex justify-between items-center px-6 py-3 pl-1 bg-black fixed top-0 z-[1000] shadow-md w-full border-b-[#583c31] border-b-4"
     >
       <a href="#home"
         ><img src="./images/clear logo.png" alt="logo" class="w-36 h-auto"
@@ -70,7 +71,7 @@
         </div>
       </div>
     </header>
-    <section class="bg-[#583c31] py-5 sticky top-0 z-20">
+    <section class="bg-[#583c31] py-5 sticky top-0 z-[40]">
       <div
         class="bg-black w-3/4 mx-auto rounded-2xl text-[#A3977D] px-3 py-4 flex-col gap-28"
       >
@@ -102,24 +103,20 @@
         </div>
       </div>
     </section>
-    <section class="bg-black relative top-0">
-      <div class="text-[#A3977D] px-4 py-4 md:flex">
-        <div
-          class="sticky top-0 bg-black py-3 md:w-full md:h-screen h-full z-30"
+    <section class="bg-black relative">
+      <div class="sticky top-0 bg-black py-3 z-[50] w-full">
+        <p
+          class="text-4xl font-dotgothic tracking-widest uppercase text-center text-[#A3977D] mb-5"
         >
-          <p
-            class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-5"
-          >
-            my skill sets
-          </p>
-        </div>
+          my skill sets
+        </p>
+      </div>
 
-        <div class="grid grid-cols-2 gap-1 h-auto">
+      <div class="text-[#A3977D] px-4 py-4 md:flex">
+        <div class="grid grid-cols-2 gap-4 w-full">
           <!-- Row 1: Top-left, empty on right -->
           <div class="flex items-start justify-center">
-            <div
-              class="w-[90vw] p-1 text-black bg-[#A3977D] rounded-md mx-auto"
-            >
+            <div class="w-full p-1 text-black bg-[#A3977D] rounded-md mx-auto">
               <img
                 src="./images/programmer.png"
                 alt="icon"
@@ -137,7 +134,7 @@
                   experiences across devices. I implement modern UI/UX
                   principles, including intuitive navigation, accessibility, and
                   performance optimization, to enhance usability and engagement.
-                  Currently leveraging React’s component-based architecture to
+                  Currently leveraging React's component-based architecture to
                   build scalable, maintainable, and reusable UI elements,
                   improving development efficiency and consistency through
                   optimizing frontend performance by applying efficient state
@@ -151,7 +148,6 @@
                 >
               </div>
             </div>
-            <!-- Top-left element -->
           </div>
           <div></div>
           <!-- Empty space on the right -->
@@ -159,10 +155,8 @@
           <!-- Row 2: empty on left, Bottom-right -->
           <div></div>
           <!-- Empty space on the left -->
-          <div class="flex items-end justify-center">
-            <div
-              class="w-[90vw] p-1 text-black bg-[#A3977D] rounded-md mx-auto"
-            >
+          <div class="flex items-start justify-center">
+            <div class="w-full p-1 text-black bg-[#A3977D] rounded-md mx-auto">
               <img
                 src="./images/programmer.png"
                 alt="icon"
@@ -192,14 +186,11 @@
                 >
               </div>
             </div>
-            <!-- Bottom-right element -->
           </div>
 
           <!-- Row 3: Top-left, empty on right -->
           <div class="flex items-start justify-center">
-            <div
-              class="w-[90vw] p-1 text-black bg-[#A3977D] rounded-md mx-auto"
-            >
+            <div class="w-full p-1 text-black bg-[#A3977D] rounded-md mx-auto">
               <img
                 src="./images/programmer.png"
                 alt="icon"
@@ -232,7 +223,6 @@
                 >
               </div>
             </div>
-            <!-- Top-left element -->
           </div>
           <div></div>
           <!-- Empty space on the right -->
@@ -240,10 +230,8 @@
           <!-- Row 4: empty on left, Bottom-right -->
           <div></div>
           <!-- Empty space on the left -->
-          <div class="flex items-end justify-center">
-            <div
-              class="w-[90vw] p-1 text-black bg-[#A3977D] rounded-md mx-auto"
-            >
+          <div class="flex items-start justify-center">
+            <div class="w-full p-1 text-black bg-[#A3977D] rounded-md mx-auto">
               <img
                 src="./images/programmer.png"
                 alt="icon"
@@ -273,14 +261,11 @@
                 >
               </div>
             </div>
-            <!-- Bottom-right element -->
           </div>
 
           <!-- Row 5: Top-left, empty on right -->
           <div class="flex items-start justify-center">
-            <div
-              class="w-[90vw] p-1 text-black bg-[#A3977D] rounded-md mx-auto"
-            >
+            <div class="w-full p-1 text-black bg-[#A3977D] rounded-md mx-auto">
               <img
                 src="./images/programmer.png"
                 alt="icon"
@@ -310,7 +295,6 @@
                 >
               </div>
             </div>
-            <!-- Top-left element -->
           </div>
           <div></div>
           <!-- Empty space on the right -->
@@ -318,10 +302,8 @@
           <!-- Row 6: empty on left, Bottom-right -->
           <div></div>
           <!-- Empty space on the left -->
-          <div class="flex items-end justify-center">
-            <div
-              class="w-[90vw] p-1 text-black bg-[#A3977D] rounded-md mx-auto"
-            >
+          <div class="flex items-start justify-center">
+            <div class="w-full p-1 text-black bg-[#A3977D] rounded-md mx-auto">
               <img
                 src="./images/programmer.png"
                 alt="icon"
@@ -353,17 +335,19 @@
                 >
               </div>
             </div>
-            <!-- Bottom-right element -->
           </div>
         </div>
       </div>
     </section>
-    <section class="bg-[#583c31] py-5 px-3 sticky lg:px-6">
-      <p
-        class="text-4xl font-dotgothic tracking-widest uppercase text-left mb-5"
-      >
-        Education
-      </p>
+    <section class="bg-[#583c31] py-5 px-3 sticky top-0 z-[30] lg:px-6">
+      <div class="sticky top-0 bg-[#583c31] py-3 z-30 w-full">
+        <p
+          class="text-4xl font-dotgothic tracking-widest uppercase text-left mb-5"
+        >
+          Education
+        </p>
+      </div>
+
       <div
         class="w-3/4 mx-auto mb-3 shadow-md shadow-black lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent"
       >
@@ -376,7 +360,7 @@
           class="border-2 border-black border-t-0 py-2 px-1 text-center italic lg:rounded-lg border-t-black lg:border-t-2"
         >
           Graduated with a 4.07/5.0 CGPA in Software Engineering, earning
-          placement on the Dean’s List of Honor from 2020/2021 to 2023/2024 for
+          placement on the Dean's List of Honor from 2020/2021 to 2023/2024 for
           outstanding academic performance. Throughout my studies, I applied
           theoretical knowledge to build practical, industry-relevant projects,
           demonstrating a strong foundation in software development, system
@@ -409,61 +393,65 @@
         </p>
       </div>
 
-      <p
-        class="text-4xl font-dotgothic tracking-widest uppercase text-right mt-5 mb-5"
-      >
-        Certification
-      </p>
-      <div
-        class="w-3/4 mx-auto shadow-md shadow-black rounded-lg bg-[#382E2C] mb-4 lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent"
-      >
-        <div
-          class="bg-[#382E2C] px-3 py-4 rounded-t-lg text-center lg:rounded-lg"
-        >
-          <p class="font-bold font-dotgothic">2020-2024</p>
-          <p class="text-xl">Augustine University Ilara</p>
-          <p class="text-sm">Bsc Software Engineering</p>
-        </div>
+      <div class="py-3">
         <p
-          class="border-2 border-black border-t-0 py-2 px-1 text-center bg-black text-[#382E2C] rounded-b-lg italic lg:rounded-lg"
+          class="text-4xl font-dotgothic tracking-widest uppercase text-right mt-5 mb-5"
         >
-          B.Sc. Software Engineering (Second Class Upper, CGPA: 4.07) –
-          Augustine University, Ilara-Epe, Lagos (2020 – 2024) <br />Honors:
-          Dean’s List of Honor (2020/2021 – 2023/2024)
+          Certification
         </p>
-      </div>
-      <div
-        class="w-3/4 mx-auto shadow-md shadow-black rounded-lg bg-[#382E2C] mb-4 lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent"
-      >
         <div
-          class="bg-[#382E2C] px-3 py-4 rounded-t-lg text-center lg:rounded-lg"
+          class="w-3/4 mx-auto shadow-md shadow-black rounded-lg bg-[#382E2C] mb-4 lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent"
         >
-          <p class="font-bold font-dotgothic">2022-2024</p>
-          <p class="text-xl">ALX</p>
-          <p class="text-sm">Bsc Software Engineering</p>
+          <div
+            class="bg-[#382E2C] px-3 py-4 rounded-t-lg text-center lg:rounded-lg"
+          >
+            <p class="font-bold font-dotgothic">2020-2024</p>
+            <p class="text-xl">Augustine University Ilara</p>
+            <p class="text-sm">Bsc Software Engineering</p>
+          </div>
+          <p
+            class="border-2 border-black border-t-0 py-2 px-1 text-center bg-black text-[#382E2C] rounded-b-lg italic lg:rounded-lg"
+          >
+            B.Sc. Software Engineering (Second Class Upper, CGPA: 4.07) –
+            Augustine University, Ilara-Epe, Lagos (2020 – 2024) <br />Honors:
+            Dean's List of Honor (2020/2021 – 2023/2024)
+          </p>
         </div>
-        <p
-          class="border-2 border-black border-t-0 py-2 px-1 text-center bg-black text-[#382E2C] rounded-b-lg italic lg:rounded-lg"
+        <div
+          class="w-3/4 mx-auto shadow-md shadow-black rounded-lg bg-[#382E2C] mb-4 lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent"
         >
-          ALX Full-Stack Software Engineering (2022 – 2024) Completed an
-          intensive, hands-on program covering full-stack development, including
-          Shell, C, Python, JavaScript, Node.js, React, and PostgreSQL. Gained
-          expertise in collaboration, problem-solving, and Agile development,
-          preparing me for real-world software engineering challenges.
-        </p>
+          <div
+            class="bg-[#382E2C] px-3 py-4 rounded-t-lg text-center lg:rounded-lg"
+          >
+            <p class="font-bold font-dotgothic">2022-2024</p>
+            <p class="text-xl">ALX</p>
+            <p class="text-sm">Bsc Software Engineering</p>
+          </div>
+          <p
+            class="border-2 border-black border-t-0 py-2 px-1 text-center bg-black text-[#382E2C] rounded-b-lg italic lg:rounded-lg"
+          >
+            ALX Full-Stack Software Engineering (2022 – 2024) Completed an
+            intensive, hands-on program covering full-stack development,
+            including Shell, C, Python, JavaScript, Node.js, React, and
+            PostgreSQL. Gained expertise in collaboration, problem-solving, and
+            Agile development, preparing me for real-world software engineering
+            challenges.
+          </p>
+        </div>
       </div>
     </section>
     <section
-      class="bg-black relative text-[#A3977D] top-0 md:flex md:space-x-2"
+      class="bg-black relative text-[#A3977D] top-0 md:flex md:space-x-2 z-[20]"
       id="resume"
     >
-      <div class="sticky top-0 bg-black py-3 md:w-full md:h-screen h-full z-30">
+      <div class="sticky top-0 bg-black py-3 z-[25] w-full">
         <p
-          class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-5"
+          class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-5 text-[#A3977D]"
         >
           work experience
         </p>
       </div>
+
       <div class="flex-col px-4">
         <div class="capitalize px-3 py-2 md:justify-self-center md:text-3xl">
           <img src="./images/programmer.png" alt="" class="h-10 md:h-24" />
@@ -549,10 +537,10 @@
       </div>
     </section>
     <section
-      class="bg-black relative text-[#A3977D] top-0 min-h-screen"
+      class="bg-black relative text-[#A3977D] top-0 min-h-screen z-[10]"
       id="contactMe"
     >
-      <div class="sticky top-0 bg-black py-3 w-full min-h-[10vh] z-30">
+      <div class="sticky top-0 bg-black py-3 w-full min-h-[10vh] z-[15]">
         <p
           class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-5"
         >

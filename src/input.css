@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme variables */
 @layer base {
   :root {
     --color-primary: #a3977d;
@@ -32,9 +31,13 @@
     --card-back-bg: #a3977d;
     --card-back-text: #362c20;
   }
+
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
 }
 
-/* Card flip styles */
+/* Card flip styles for project page */
 @layer components {
   .project-card {
     @apply relative h-[420px] w-full cursor-pointer;
@@ -59,15 +62,27 @@
   }
 
   .card-front {
-    background-color: var(--card-front-bg);
-    @apply p-5 flex flex-col overflow-hidden;
+    @apply bg-[#382e2c] p-5 flex flex-col overflow-hidden;
   }
 
   .card-back {
-    background-color: var(--card-back-bg);
-    color: var(--card-back-text);
-    @apply p-5 flex flex-col justify-between;
+    @apply bg-[#a3977d] text-[#362c20] p-5 flex flex-col justify-between;
     transform: rotateY(180deg);
+  }
+}
+
+@layer utilities {
+  .animate-scroll {
+    animation: scrollHorizontal 10s linear infinite;
+  }
+
+  @keyframes scrollHorizontal {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
 
   .bg-dark {
