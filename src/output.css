@@ -700,19 +700,51 @@ body {
   z-index: 10;
 }
 
-.z-1000{
+.z-50{
+  z-index: 50;
+}
+
+.z-\[1000\]{
   z-index: 1000;
 }
 
-.z-30{
+.z-\[20\]{
+  z-index: 20;
+}
+
+.z-\[21\]{
+  z-index: 21;
+}
+
+.z-\[25\]{
+  z-index: 25;
+}
+
+.z-\[26\]{
+  z-index: 26;
+}
+
+.z-\[30\]{
   z-index: 30;
 }
 
-.z-40{
+.z-\[31\]{
+  z-index: 31;
+}
+
+.z-\[35\]{
+  z-index: 35;
+}
+
+.z-\[40\]{
   z-index: 40;
 }
 
-.z-50{
+.z-\[41\]{
+  z-index: 41;
+}
+
+.z-\[50\]{
   z-index: 50;
 }
 
@@ -724,6 +756,10 @@ body {
 .my-2{
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.mb-0{
+  margin-bottom: 0px;
 }
 
 .mb-1{
@@ -772,6 +808,10 @@ body {
 
 .mt-6{
   margin-top: 1.5rem;
+}
+
+.mt-\[-1px\]{
+  margin-top: -1px;
 }
 
 .mt-auto{
@@ -838,14 +878,6 @@ body {
   height: auto;
 }
 
-.min-h-\[10vh\]{
-  min-height: 10vh;
-}
-
-.min-h-screen{
-  min-height: 100vh;
-}
-
 .w-1\/2{
   width: 50%;
 }
@@ -904,10 +936,6 @@ body {
 
 .w-\[90\%\]{
   width: 90%;
-}
-
-.w-\[90vw\]{
-  width: 90vw;
 }
 
 .w-full{
@@ -982,10 +1010,6 @@ body {
   align-items: flex-start;
 }
 
-.items-end{
-  align-items: flex-end;
-}
-
 .items-center{
   align-items: center;
 }
@@ -998,10 +1022,6 @@ body {
   justify-content: space-between;
 }
 
-.gap-1{
-  gap: 0.25rem;
-}
-
 .gap-2{
   gap: 0.5rem;
 }
@@ -1012,6 +1032,10 @@ body {
 
 .gap-3{
   gap: 0.75rem;
+}
+
+.gap-4{
+  gap: 1rem;
 }
 
 .gap-8{
@@ -1269,6 +1293,10 @@ body {
   padding-bottom: 2rem;
 }
 
+.pb-0{
+  padding-bottom: 0px;
+}
+
 .pb-16{
   padding-bottom: 4rem;
 }
@@ -1283,6 +1311,10 @@ body {
 
 .pl-1{
   padding-left: 0.25rem;
+}
+
+.pt-2{
+  padding-top: 0.5rem;
 }
 
 .pt-28{
@@ -1677,12 +1709,6 @@ body {
     margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
-  .md\:space-x-2 > :not([hidden]) ~ :not([hidden]){
-    --tw-space-x-reverse: 0;
-    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-
   .md\:justify-self-center{
     justify-self: center;
   }
@@ -1808,10 +1834,6 @@ body {
 
   .lg\:pb-12{
     padding-bottom: 3rem;
-  }
-
-  .lg\:pt-16{
-    padding-top: 4rem;
   }
 
   .lg\:pt-36{

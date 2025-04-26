@@ -71,13 +71,15 @@
         </div>
       </div>
     </header>
-    <section class="bg-[#583c31] py-5 sticky top-0 z-[40]">
-      <div
-        class="bg-black w-3/4 mx-auto rounded-2xl text-[#A3977D] px-3 py-4 flex-col gap-28"
-      >
+    <section class="bg-[#583c31] py-5 relative z-[40]">
+      <div class="sticky top-0 bg-[#583c31] py-3 z-[41] w-full">
         <p class="text-4xl px-1 py-1 font-dotgothic tracking-widest">
           ABOUT ME
         </p>
+      </div>
+      <div
+        class="bg-black w-3/4 mx-auto rounded-2xl text-[#A3977D] px-3 py-4 flex-col gap-28"
+      >
         <div>
           <img src="./images/programmer.png" alt="" class="h-10 p-0" />
           <hr class="bg-[#362C20] border-0 rounded-lg h-1 w-full" />
@@ -103,7 +105,7 @@
         </div>
       </div>
     </section>
-    <section class="bg-black relative">
+    <section class="bg-black relative z-[35]">
       <div class="sticky top-0 bg-black py-3 z-[50] w-full">
         <p
           class="text-4xl font-dotgothic tracking-widest uppercase text-center text-[#A3977D] mb-5"
@@ -339,8 +341,8 @@
         </div>
       </div>
     </section>
-    <section class="bg-[#583c31] py-5 px-3 sticky top-0 z-[30] lg:px-6">
-      <div class="sticky top-0 bg-[#583c31] py-3 z-30 w-full">
+    <section class="bg-[#583c31] py-5 px-3 relative z-[30] lg:px-6">
+      <div class="sticky top-0 bg-[#583c31] py-3 z-[31] w-full">
         <p
           class="text-4xl font-dotgothic tracking-widest uppercase text-left mb-5"
         >
@@ -440,11 +442,8 @@
         </div>
       </div>
     </section>
-    <section
-      class="bg-black relative text-[#A3977D] top-0 md:flex md:space-x-2 z-[20]"
-      id="resume"
-    >
-      <div class="sticky top-0 bg-black py-3 z-[25] w-full">
+    <section class="bg-black relative text-[#A3977D] top-0 z-[25]" id="resume">
+      <div class="sticky top-0 bg-black py-3 z-[26] w-full">
         <p
           class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-5 text-[#A3977D]"
         >
@@ -537,10 +536,10 @@
       </div>
     </section>
     <section
-      class="bg-black relative text-[#A3977D] top-0 min-h-screen z-[10]"
+      class="bg-black relative text-[#A3977D] top-0 pb-0 z-[20] mb-0"
       id="contactMe"
     >
-      <div class="sticky top-0 bg-black py-3 w-full min-h-[10vh] z-[15]">
+      <div class="sticky top-0 bg-black py-3 w-full z-[21]">
         <p
           class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-5"
         >
@@ -548,7 +547,7 @@
         </p>
       </div>
 
-      <div class="">
+      <div class="pb-0 mb-0">
         <div
           class="px-3 py-2 border-2 border-[#362C20] w-[70vw] mx-auto rounded-xl flex flex-col items-center text-center lg:w-[40vw]"
         >
@@ -584,7 +583,7 @@
         </div>
 
         <div
-          class="bg-[#A3977D] rounded-t-3xl p-2 text-black text-center mt-5 font-dotgothic tracking-wider lg:absolute lg:rounded-full lg:z-50 lg:bottom-0 lg:left-0 lg:px-2 lg:leading-7"
+          class="bg-[#A3977D] rounded-t-3xl p-2 text-black text-center mt-5 mb-0 font-dotgothic tracking-wider lg:absolute lg:rounded-full lg:z-50 lg:bottom-0 lg:left-0 lg:px-2 lg:leading-7"
         >
           <a
             href="mailto:ukcharlies@gmail.com"
@@ -620,16 +619,16 @@
     </section>
 
     <footer
-      class="bg-black text-[#A3977D] py-5 px-3 sticky overflow-hidden whitespace-nowrap lg:pt-16"
+      class="bg-black text-[#A3977D] py-2 px-3 relative overflow-hidden whitespace-nowrap mt-[-1px]"
     >
       <p
-        class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-5 inline-block animate-scroll w-full"
+        class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-3 inline-block animate-scroll w-full py-3"
       >
         footer
       </p>
       <p class="capitalize text-center">copyright &copy; your website 2024</p>
       <div
-        class="flex justify-between items-center w-1/2 mx-auto capitalize pt-4"
+        class="flex justify-between items-center w-1/2 mx-auto capitalize pt-2"
       >
         <a
           href=""
