@@ -1,23 +1,62 @@
 // Theme toggle script for the portfolio website
 document.addEventListener("DOMContentLoaded", () => {
-  // Check for saved theme preference or use the default (dark)
-  const savedTheme = localStorage.getItem("theme") || "dark";
-  document.documentElement.classList.add(savedTheme);
+  const themeToggle = document.getElementById("theme-toggle");
+  const moonIcon = document.getElementById("moon-icon");
+  const sunIcon = document.getElementById("sun-icon");
+  const html = document.documentElement;
 
-  // Add theme toggle functionality if needed in the future
-  // For now, we're using the dark theme with brown/golden accents as requested
+  // Function to set the theme (class, storage, icon)
   function setTheme(theme) {
+    localStorage.setItem("theme", theme);
     if (theme === "light") {
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-      localStorage.setItem("theme", "light");
+      html.classList.remove("dark");
+      html.classList.add("light");
+      moonIcon?.classList.add("hidden");
+      sunIcon?.classList.remove("hidden");
     } else {
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      // Default to dark
+      html.classList.remove("light");
+      html.classList.add("dark");
+      sunIcon?.classList.add("hidden");
+      moonIcon?.classList.remove("hidden");
     }
   }
 
-  // Expose the setTheme function globally for use in the HTML
-  window.setTheme = setTheme;
+  // Check for saved theme preference or use system preference or default to dark
+  const savedTheme =
+    localStorage.getItem("theme") ||
+    (window.matchMedia("(prefers-color-scheme: light)").matches
+      ? "light"
+      : "dark");
+
+  // Apply the initial theme
+  setTheme(savedTheme);
+
+  // Function to check scroll position and show/hide button
+  function checkScrollPosition() {
+    // Only run if the button exists
+    if (!themeToggle) return;
+
+    const halfwayPoint = window.innerHeight / 2;
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition > halfwayPoint) {
+      themeToggle.classList.remove("opacity-0", "translate-y-10");
+      themeToggle.classList.add("opacity-100", "translate-y-0");
+    } else {
+      themeToggle.classList.add("opacity-0", "translate-y-10");
+      themeToggle.classList.remove("opacity-100", "translate-y-0");
+    }
+  }
+
+  // Initial check and add scroll listener
+  checkScrollPosition();
+  window.addEventListener("scroll", checkScrollPosition);
+
+  // Add click listener to the toggle button
+  themeToggle?.addEventListener("click", () => {
+    const currentTheme = html.classList.contains("dark") ? "dark" : "light";
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+  });
 });
