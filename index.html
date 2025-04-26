@@ -10,7 +10,7 @@
   </head>
   <body id="home">
     <nav
-      class="flex justify-between items-center px-6 py-3 pl-1 bg-black fixed top-0 z-[1000] shadow-md w-full border-b-[#583c31] border-b-4"
+      class="flex justify-between items-center px-6 py-3 pl-1 bg-black sticky top-0 z-[100] shadow-md w-full border-b-[#583c31] border-b-4"
     >
       <a href="#home"
         ><img src="./images/clear logo.png" alt="logo" class="w-36 h-auto"
@@ -26,7 +26,7 @@
     </nav>
 
     <header
-      class="mt-28 bg-black text-[#A3977D] px-6 py-4 md:flex md:gap-10 md:py-14 md:justify-between md:items-center z-10"
+      class="bg-black text-[#A3977D] px-6 py-4 md:flex md:gap-10 md:py-14 md:justify-between md:items-center z-10"
     >
       <div
         class="bg-gradient-to-l from-[#583c31] to-[#A3977D] rounded-3xl flex justify-center items-center w-2/3 mx-auto mb-2 md:size-96"
@@ -71,16 +71,16 @@
         </div>
       </div>
     </header>
-    <section class="bg-[#583c31] py-5 relative z-[40]">
-      <div class="sticky top-0 bg-[#583c31] py-3 z-[41] w-full">
-        <p
-          class="text-center text-4xl px-1 py-1 font-dotgothic tracking-widest"
-        >
+    <section class="bg-[#583c31] py-5">
+      <div
+        class="bg-[#583c31] py-4 w-full border-b-2 border-[#A3977D] shadow-md"
+      >
+        <p class="text-center text-4xl px-1 font-dotgothic tracking-widest">
           ABOUT ME
         </p>
       </div>
       <div
-        class="bg-black w-3/4 mx-auto rounded-2xl text-[#A3977D] px-3 py-4 flex-col gap-28"
+        class="bg-black w-3/4 mx-auto rounded-2xl text-[#A3977D] px-3 py-4 flex-col gap-28 mt-6"
       >
         <div>
           <img src="./images/programmer.png" alt="" class="h-10 p-0" />
@@ -96,7 +96,7 @@
             every project. With added knowledge in application security and
             basic cybersecurity, I prioritize both performance and
             protection—implementing secure authentication, data validation, and
-            best coding practices. I’m passionate about problem-solving, clean
+            best coding practices. I'm passionate about problem-solving, clean
             code, and creating seamless digital experiences that leave an
             impact.
           </p>
@@ -117,16 +117,18 @@
         </div>
       </div>
     </section>
-    <section class="bg-black relative z-[35]">
-      <div class="sticky top-0 bg-black py-3 z-[50] w-full">
+    <section class="bg-black">
+      <div
+        class="sticky top-0 bg-black py-4 z-[40] w-full border-b-2 border-[#A3977D] shadow-md"
+      >
         <p
-          class="text-4xl font-dotgothic tracking-widest uppercase text-center text-[#A3977D] mb-5"
+          class="text-4xl font-dotgothic tracking-widest uppercase text-center py-5 text-[#A3977D]"
         >
           my skill sets
         </p>
       </div>
 
-      <div class="text-[#A3977D] px-4 py-4 md:flex">
+      <div class="text-[#A3977D] px-4 py-4 mt-6 md:flex">
         <div class="grid grid-cols-2 gap-4 w-full">
           <!-- Row 1: Top-left, empty on right -->
           <div class="flex items-start justify-center">
@@ -148,7 +150,7 @@
                   experiences across devices. I apply modern UI/UX
                   principles—including intuitive navigation, accessibility, and
                   performance optimization—to enhance usability and engagement.
-                  Leveraging React’s component-based architecture, I build
+                  Leveraging React's component-based architecture, I build
                   scalable and reusable UI elements while optimizing frontend
                   performance with efficient state management to deliver
                   fast-loading, high-performing applications.
@@ -217,7 +219,7 @@
                   and JavaScript, showcasing my frontend expertise and design
                   skills. The site highlights my technical capabilities, past
                   projects, and approach to solving real-world problems. In
-                  addition, I’m launching a full-fledged e-commerce platform
+                  addition, I'm launching a full-fledged e-commerce platform
                   developed with React, Node.js, Express, and PostgreSQL. It
                   features secure authentication, product and cart management,
                   and a seamless checkout process—demonstrating my full-stack
@@ -285,10 +287,10 @@
                   Technical Communication & Team Collaboration
                 </p>
                 <p class="text-left text-sm font-thin mb-1">
-                  Through my training and practical experience, I’ve developed
+                  Through my training and practical experience, I've developed
                   strong technical communication skills—effectively breaking
                   down complex ideas for both technical and non-technical
-                  audiences. I’ve collaborated on cross-functional teams using
+                  audiences. I've collaborated on cross-functional teams using
                   Agile methodologies, participated in code reviews, and
                   contributed to seamless project execution with tools like Git,
                   GitHub, Trello, Jara and Slack.
@@ -340,17 +342,17 @@
         </div>
       </div>
     </section>
-    <section class="bg-[#583c31] py-5 px-3 relative z-[30] lg:px-6">
-      <div class="sticky top-0 bg-[#583c31] py-3 z-[31] w-full">
-        <p
-          class="text-4xl font-dotgothic tracking-widest uppercase text-left mb-5"
-        >
+    <section class="bg-[#583c31] py-5 px-3 lg:px-6">
+      <div
+        class="bg-[#583c31] py-4 w-full border-b-2 border-[#A3977D] shadow-md"
+      >
+        <p class="text-4xl font-dotgothic tracking-widest uppercase text-left">
           Education
         </p>
       </div>
 
       <div
-        class="w-3/4 mx-auto mb-3 shadow-md shadow-black lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent"
+        class="w-3/4 mx-auto mb-3 shadow-md shadow-black lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent mt-6"
       >
         <div
           class="bg-black text-[#382E2C] px-3 py-4 rounded-lg text-center lg:w-1/4 lg:min-w-[220px] lg:max-w-[300px] lg:flex lg:flex-col lg:justify-center"
@@ -453,16 +455,18 @@
         </div>
       </div>
     </section>
-    <section class="bg-black relative text-[#A3977D] top-0 z-[25]" id="resume">
-      <div class="sticky top-0 bg-black py-3 z-[26] w-full">
+    <section class="bg-black text-[#A3977D]" id="resume">
+      <div
+        class="sticky top-0 bg-black py-4 z-[50] w-full border-b-2 border-[#A3977D] shadow-md"
+      >
         <p
-          class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-5 text-[#A3977D]"
+          class="text-4xl font-dotgothic tracking-widest uppercase py-5 text-center text-[#A3977D]"
         >
           work experience
         </p>
       </div>
 
-      <div class="flex-col px-4 lg:w-[80%] lg:max-w-5xl lg:mx-auto">
+      <div class="flex-col px-4 lg:w-[80%] lg:max-w-5xl lg:mx-auto mt-6">
         <!-- First job -->
         <div class="lg:flex lg:gap-8 lg:mb-12">
           <!-- Left column - job info -->
@@ -596,19 +600,18 @@
         </div>
       </div>
     </section>
-    <section
-      class="bg-black relative text-[#A3977D] top-0 pb-0 z-[20] mb-0 mt-[-1px]"
-      id="contactMe"
-    >
-      <div class="sticky top-0 bg-black py-3 w-full z-[21]">
+    <section class="bg-black text-[#A3977D] pb-0 mb-0 mt-[-1px]" id="contactMe">
+      <div
+        class="sticky top-0 bg-black py-4 z-[60] w-full border-b-2 border-[#A3977D] shadow-md"
+      >
         <p
-          class="text-4xl font-dotgothic tracking-widest uppercase text-center mb-5"
+          class="text-4xl font-dotgothic tracking-widest uppercase text-center"
         >
           contact me
         </p>
       </div>
 
-      <div class="pb-0 mb-0">
+      <div class="pb-0 mb-0 mt-6">
         <div
           class="px-3 py-2 border-2 border-[#362C20] w-[70vw] mx-auto rounded-xl flex flex-col items-center text-center lg:w-[40vw]"
         >

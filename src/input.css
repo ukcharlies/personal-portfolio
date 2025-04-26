@@ -35,6 +35,14 @@
   body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
+
+  /* Ensure sticky headers work consistently across browsers */
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
 }
 
 /* Card flip styles for project page */

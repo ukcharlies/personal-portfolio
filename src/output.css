@@ -587,6 +587,14 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Ensure sticky headers work consistently across browsers */
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
 .container{
   width: 100%;
 }
@@ -736,16 +744,16 @@ body {
   z-index: 35;
 }
 
+.z-\[36\]{
+  z-index: 36;
+}
+
 .z-\[40\]{
   z-index: 40;
 }
 
 .z-\[41\]{
   z-index: 41;
-}
-
-.z-\[50\]{
-  z-index: 50;
 }
 
 .mx-auto{
@@ -1115,6 +1123,10 @@ body {
 
 .border-2{
   border-width: 2px;
+}
+
+.border-b-2{
+  border-bottom-width: 2px;
 }
 
 .border-b-4{
