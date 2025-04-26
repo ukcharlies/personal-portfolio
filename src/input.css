@@ -38,9 +38,10 @@
 
   /* Ensure sticky headers work consistently across browsers */
   .sticky {
-    position: -webkit-sticky;
+    position: -webkit-sticky; /* For Safari */
     position: sticky;
     top: 0;
+    /* Explicitly set a default z-index, though it will be overridden by z-[value] */
     z-index: 10;
   }
 }
@@ -80,6 +81,15 @@
 }
 
 @layer utilities {
+  /* Custom theme-aware gradient */
+  .profile-gradient {
+    background: linear-gradient(
+      to left,
+      var(--color-accent),
+      var(--color-primary)
+    );
+  }
+
   .animate-scroll {
     animation: scrollHorizontal 10s linear infinite;
   }
