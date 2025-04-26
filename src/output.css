@@ -590,8 +590,10 @@ body {
 /* Ensure sticky headers work consistently across browsers */
 
 .sticky {
+  /* For Safari */
   position: sticky;
   top: 0;
+  /* Explicitly set a default z-index, though it will be overridden by z-[value] */
   z-index: 10;
 }
 
