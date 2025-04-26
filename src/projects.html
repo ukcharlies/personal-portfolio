@@ -34,13 +34,34 @@
         Here's a collection of projects I've worked on, showcasing my skills in
         frontend development, backend integration, and full-stack applications.
       </p>
-      <div id="resume" class="flex justify-center mb-12">
+        <div id="resume" class="flex flex-col space-y-6 md:flex-row md:justify-center md:space-y-0 md:space-x-8 mb-12 gap-6 md:align-middle" style="gap: 30px;">
         <a
           href="../docs/Copy of Ukachi Chuka Charles (1).docx"
           download
           class="bg-primary text-dark px-5 py-3 rounded-xl hover:bg-accent hover:text-white flex items-center space-x-2 transition-colors duration-300"
         >
           <span>Download Resume</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            />
+          </svg>
+        </a>
+        <a
+          href="../docs/alx-certificate.jpg"
+          download
+          class="bg-primary text-dark px-5 py-3 rounded-xl hover:bg-accent hover:text-white flex items-center space-x-2 transition-colors duration-300"
+        >
+          <span>Download Alx Certificate</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -412,7 +433,6 @@
                   >Demo</a
                 > 
                 -->
-                > >
               </div>
             </div>
           </div>
@@ -586,7 +606,8 @@
     <!-- Theme Toggle Button -->
     <button
       id="theme-toggle"
-      class="fixed left-6 bottom-6 z-50 w-12 h-12 rounded-full bg-primary text-dark shadow-lg flex items-center justify-center opacity-0 transition-all duration-300 transform translate-y-10"
+      class="fixed left-6 bottom-6 z-50 w-12 h-12 rounded-full bg-primary text-dark shadow-lg flex items-center justify-center transition-all duration-300 transform"
+      aria-label="Toggle theme"
     >
       <svg
         id="moon-icon"

@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
       sunIcon?.classList.add("hidden");
       moonIcon?.classList.remove("hidden");
     }
+    // Ensure button is visible after theme set (if it exists)
+    if (themeToggle) {
+      themeToggle.classList.remove("opacity-0", "translate-y-10");
+      themeToggle.classList.add("opacity-100", "translate-y-0");
+    }
   }
 
   // Check for saved theme preference or use system preference or default to dark
@@ -31,27 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Apply the initial theme
   setTheme(savedTheme);
-
-  // Function to check scroll position and show/hide button
-  function checkScrollPosition() {
-    // Only run if the button exists
-    if (!themeToggle) return;
-
-    const halfwayPoint = window.innerHeight / 2;
-    const scrollPosition = window.scrollY;
-
-    if (scrollPosition > halfwayPoint) {
-      themeToggle.classList.remove("opacity-0", "translate-y-10");
-      themeToggle.classList.add("opacity-100", "translate-y-0");
-    } else {
-      themeToggle.classList.add("opacity-0", "translate-y-10");
-      themeToggle.classList.remove("opacity-100", "translate-y-0");
-    }
-  }
-
-  // Initial check and add scroll listener
-  checkScrollPosition();
-  window.addEventListener("scroll", checkScrollPosition);
 
   // Add click listener to the toggle button
   themeToggle?.addEventListener("click", () => {
