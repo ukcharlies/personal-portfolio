@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Projects</title>
     <link rel="stylesheet" href="output.css" />
+    <script src="theme.js" defer></script>
   </head>
   <body class="bg-dark text-primary transition-colors duration-300">
     <nav
@@ -566,51 +567,5 @@
         />
       </svg>
     </button>
-
-    <script>
-      // Theme toggle functionality
-      document.addEventListener("DOMContentLoaded", function () {
-        const themeToggle = document.getElementById("theme-toggle");
-        const moonIcon = document.getElementById("moon-icon");
-        const sunIcon = document.getElementById("sun-icon");
-        const html = document.documentElement;
-
-        // Check scroll position on load
-        checkScrollPosition();
-
-        // Check scroll position on scroll
-        window.addEventListener("scroll", checkScrollPosition);
-
-        function checkScrollPosition() {
-          const halfwayPoint = window.innerHeight / 2;
-          const scrollPosition = window.scrollY;
-
-          if (scrollPosition > halfwayPoint) {
-            themeToggle.classList.remove("opacity-0", "translate-y-10");
-            themeToggle.classList.add("opacity-100", "translate-y-0");
-          } else {
-            themeToggle.classList.add("opacity-0", "translate-y-10");
-            themeToggle.classList.remove("opacity-100", "translate-y-0");
-          }
-        }
-
-        // Toggle theme
-        themeToggle.addEventListener("click", function () {
-          if (html.classList.contains("dark")) {
-            // Switch to light mode
-            html.classList.remove("dark");
-            html.classList.add("light");
-            moonIcon.classList.add("hidden");
-            sunIcon.classList.remove("hidden");
-          } else {
-            // Switch to dark mode
-            html.classList.remove("light");
-            html.classList.add("dark");
-            sunIcon.classList.add("hidden");
-            moonIcon.classList.remove("hidden");
-          }
-        });
-      });
-    </script>
   </body>
 </html>
