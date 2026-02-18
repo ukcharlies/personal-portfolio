@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getThemeColor() {
     const style = getComputedStyle(document.documentElement);
-    return style.getPropertyValue("--color-accent").trim() || "#583c31";
+    return style.getPropertyValue("--color-primary").trim() || "#a3977d";
   }
 
   /* ---------- build DOM ---------- */

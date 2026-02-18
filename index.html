@@ -24,7 +24,7 @@
         width: 100% !important;
         height: 100% !important;
       }
-      /* Let mouse events pass through to the section beneath */
+      /* Hero wrapper fills its content and holds the canvas behind */
       .hero-wrapper {
         position: relative;
         overflow: hidden;
@@ -36,6 +36,273 @@
       /* Hide default cursor on larger screens (blob replaces it) */
       @media (min-width: 768px) {
         * { cursor: none !important; }
+      }
+
+      /* ---- Hero Section Styles ---- */
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 2rem;
+        background: transparent;
+      }
+      @media (min-width: 768px) {
+        .hero-section {
+          flex-direction: row;
+          text-align: left;
+          padding: 4rem 6rem;
+          gap: 4rem;
+        }
+      }
+
+      /* Profile image ring */
+      .hero-profile-ring {
+        flex-shrink: 0;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        padding: 4px;
+        background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+        box-shadow:
+          0 0 40px rgba(88, 60, 49, 0.4),
+          0 0 80px rgba(88, 60, 49, 0.15);
+        transition: box-shadow 0.4s ease, transform 0.4s ease;
+      }
+      .hero-profile-ring:hover {
+        transform: scale(1.04);
+        box-shadow:
+          0 0 60px rgba(88, 60, 49, 0.55),
+          0 0 120px rgba(88, 60, 49, 0.2);
+      }
+      @media (min-width: 768px) {
+        .hero-profile-ring {
+          width: 300px;
+          height: 300px;
+          padding: 5px;
+        }
+      }
+      .hero-profile-ring img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+      }
+
+      /* Hero text block */
+      .hero-greeting {
+        font-size: 0.85rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 0.25rem;
+      }
+      .hero-name {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        color: var(--color-primary);
+      }
+      .hero-role {
+        font-size: 3rem;
+        font-weight: 800;
+        line-height: 1.1;
+        color: var(--color-accent);
+        display: block;
+        margin-top: 0.25rem;
+      }
+      .hero-tagline {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--color-primary);
+        opacity: 0.7;
+      }
+      @media (min-width: 768px) {
+        .hero-name { font-size: 4rem; }
+        .hero-role { font-size: 4.5rem; }
+        .hero-greeting { font-size: 1rem; }
+        .hero-tagline { font-size: 0.9rem; }
+      }
+      @media (min-width: 1024px) {
+        .hero-name { font-size: 5rem; }
+        .hero-role { font-size: 5.5rem; }
+      }
+
+      /* CTA buttons */
+      .hero-cta-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 2rem;
+        width: 100%;
+        max-width: 320px;
+      }
+      @media (min-width: 768px) {
+        .hero-cta-group {
+          flex-direction: row;
+          max-width: none;
+          width: auto;
+        }
+      }
+      .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.85rem 2rem;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .hero-cta-primary {
+        background-color: var(--color-primary);
+        color: var(--color-dark);
+      }
+      .hero-cta-primary:hover {
+        background-color: var(--color-accent);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(88, 60, 49, 0.35);
+      }
+      .hero-cta-outline {
+        border: 2px solid var(--color-primary);
+        color: var(--color-primary);
+        background: transparent;
+      }
+      .hero-cta-outline:hover {
+        background-color: var(--color-accent);
+        border-color: var(--color-accent);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(88, 60, 49, 0.35);
+      }
+
+      /* Scroll indicator */
+      .scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-primary);
+        opacity: 0.5;
+        animation: scrollBounce 2s infinite;
+      }
+      .scroll-indicator span {
+        font-size: 0.65rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+      @keyframes scrollBounce {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50% { transform: translateX(-50%) translateY(8px); }
+      }
+
+      /* ---- About Section (glass card over particles) ---- */
+      .about-section {
+        padding: 5rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: transparent;
+      }
+      .about-label {
+        font-size: 0.75rem;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 0.5rem;
+      }
+      .about-heading {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        margin-bottom: 2.5rem;
+        text-align: center;
+      }
+      @media (min-width: 768px) {
+        .about-heading { font-size: 3.5rem; }
+      }
+
+      .about-glass {
+        max-width: 860px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(163, 151, 125, 0.15);
+        border-radius: 1.5rem;
+        padding: 2.5rem 2rem;
+        color: var(--color-primary);
+        line-height: 1.8;
+        font-size: 0.95rem;
+        box-shadow: 0 8px 60px rgba(0,0,0,0.3);
+        transition: border-color 0.4s ease, box-shadow 0.4s ease;
+      }
+      .about-glass:hover {
+        border-color: rgba(163, 151, 125, 0.3);
+        box-shadow: 0 12px 80px rgba(0,0,0,0.4);
+      }
+      .light .about-glass {
+        background: rgba(248, 248, 248, 0.5);
+        border-color: rgba(88, 60, 49, 0.15);
+        box-shadow: 0 8px 60px rgba(0,0,0,0.08);
+      }
+      .light .about-glass:hover {
+        border-color: rgba(88, 60, 49, 0.3);
+        box-shadow: 0 12px 80px rgba(0,0,0,0.12);
+      }
+      @media (min-width: 768px) {
+        .about-glass {
+          padding: 3rem 3.5rem;
+          font-size: 1.05rem;
+        }
+      }
+
+      .about-divider {
+        width: 60px;
+        height: 3px;
+        border-radius: 2px;
+        background: var(--color-accent);
+        margin-bottom: 1.5rem;
+      }
+
+      .about-socials {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+      .about-socials a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 2px solid var(--color-accent);
+        transition: all 0.3s ease;
+      }
+      .about-socials a:hover {
+        background-color: var(--color-accent);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(88, 60, 49, 0.3);
+      }
+      .about-socials img {
+        width: 26px;
+        height: 26px;
       }
     </style>
 
@@ -62,98 +329,80 @@
       <!-- Antigravity particle canvas lives here -->
       <div id="antigravity-container"></div>
 
-    <header
-      class="bg-dark text-primary px-6 py-4 md:flex md:gap-10 md:py-14 md:justify-between md:items-center z-10"
-    >
-      <div
-        class="profile-gradient rounded-3xl flex justify-center items-center w-2/3 mx-auto mb-2 md:size-96 shadow-md transition-colors duration-300 p-2"
-      >
-        <img
-          src="./images/ediited picture_prev_ui.png"
-          alt="my image"
-          class="h-52 w-full max-w-[300px] rounded-xl sm:mx-auto md:size-96 md:rounded-b-3xl object-contain"
-        />
-      </div>
-
-      <div>
-        <div class="leading-10 md:text-9xl md:leading-10">
-          <p
-            class="text-left text-3xl font-extrabold font-dotgothic tracking-normal"
-          >
-            Hello,I'm Ukachi Charles a
-            <span class="text-accent font-dotgothic text-4xl"
-              >Software Engineer.</span
-            >
-          </p>
-
-          <p class="text-[10px] tracking-[2px]">
-            Crafting codes today,Shaping tomorows future
-          </p>
+      <!-- ===== HERO SECTION ===== -->
+      <section class="hero-section">
+        <!-- Profile image -->
+        <div class="hero-profile-ring">
+          <img
+            src="./images/ediited picture_prev_ui.png"
+            alt="Ukachi Charles — Software Engineer"
+          />
         </div>
-        <br />
-        <br class="hidden md:block" />
-        <div
-          class="flex flex-col items-center gap-3 w-full max-w-xs mx-auto sm:w-2/3 md:flex-row md:justify-between md:w-1/2 md:mx-0 md:max-w-none md:gap-1"
-        >
-          <a
-            href="./src/projects.html"
-            class="w-full text-center text-dark bg-primary px-5 py-2 rounded-xl hover:bg-accent hover:text-light md:w-auto md:h-[70px] md:flex md:items-center md:justify-center md:text-xl md:px-6"
-            >Projects</a
-          >
-          <a
-            href="#contactMe"
-            class="w-full text-center border-primary border px-5 py-2 rounded-xl hover:bg-accent hover:text-light hover:border-none md:w-auto md:text-xl md:h-[70px] md:flex md:items-center md:justify-center md:px-6 whitespace-nowrap"
-            >Get in touch</a
-          >
-        </div>
-      </div>
-    </header>
-    <section class="bg-accent py-5">
-      <div class="bg-accent py-4 w-full border-b-accent shadow-md">
-        <p
-          class="text-center text-4xl px-1 font-dotgothic tracking-widest text-light"
-        >
-          ABOUT ME
-        </p>
-      </div>
-      <div
-        class="bg-dark w-3/4 mx-auto rounded-2xl text-primary px-3 py-4 flex-col gap-28 mt-6"
-      >
+
+        <!-- Text content -->
         <div>
-          <img src="./images/programmer.png" alt="" class="h-10 p-0" />
-          <hr class="border-accent border-t rounded-lg h-1 w-full" />
-          <p class="">
+          <p class="hero-greeting font-dotgothic">Hello, I'm</p>
+          <h1 class="hero-name font-dotgothic">
+            Ukachi Charles
+            <span class="hero-role font-dotgothic">Software Engineer.</span>
+          </h1>
+          <p class="hero-tagline">Crafting codes today · Shaping tomorrow's future</p>
+
+          <div class="hero-cta-group">
+            <a href="./src/projects.html" class="hero-cta hero-cta-primary">Projects</a>
+            <a href="#contactMe" class="hero-cta hero-cta-outline">Get in touch</a>
+          </div>
+        </div>
+
+        <!-- Scroll hint -->
+        <div class="scroll-indicator">
+          <span>Scroll</span>
+          <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M8 4v16m0 0l-5-5m5 5l5-5"/>
+          </svg>
+        </div>
+      </section>
+
+      <!-- ===== ABOUT ME ===== -->
+      <section class="about-section">
+        <p class="about-label font-dotgothic">Who I Am</p>
+        <h2 class="about-heading font-dotgothic">ABOUT ME</h2>
+
+        <div class="about-glass">
+          <div class="about-divider"></div>
+          <p>
             I'm a software engineer skilled in the PERN stack (PostgreSQL,
             Express, React, Node.js) with a strong foundation in frontend
             engineering and UI development. I build responsive, user-friendly,
-            and secure web applications tailored to real-world needs. From
-            building clean, accessible interfaces with HTML, Tailwind CSS, and
-            JavaScript to architecting robust backend systems and RESTful APIs
+            and secure web applications tailored to real-world needs.
+          </p>
+          <br />
+          <p>
+            From building clean, accessible interfaces with HTML, Tailwind CSS,
+            and JavaScript to architecting robust backend systems and RESTful APIs
             with the PERN stack, I bring a versatile full-stack approach to
             every project. With added knowledge in application security and
             basic cybersecurity, I prioritize both performance and
             protection—implementing secure authentication, data validation, and
-            best coding practices. I'm passionate about problem-solving, clean
-            code, and creating seamless digital experiences that leave an
-            impact.
+            best coding practices.
           </p>
+          <br />
+          <p>
+            I'm passionate about problem-solving, clean code, and creating
+            seamless digital experiences that leave an impact.
+          </p>
+
+          <div class="about-socials">
+            <a href="https://www.linkedin.com/in/chuka-ukachi-70b525262/" aria-label="LinkedIn">
+              <img src="./images/linkedin.png" alt="LinkedIn" />
+            </a>
+            <a href="https://github.com/ukcharlies" aria-label="GitHub">
+              <img src="./images/github-sign.png" alt="GitHub" />
+            </a>
+          </div>
         </div>
-        <div class=".symbols flex py-6 justify-between w-1/2 mx-auto">
-          <a href=""
-            ><img
-              src="./images/linkedin.png"
-              alt=""
-              class="w-14 p-2 hover:border-b-4 hover:border-primary"
-          /></a>
-          <a href=""
-            ><img
-              src="./images/github-sign.png"
-              alt=""
-              class="w-14 p-2 hover:border-b-4 hover:border-primary"
-          /></a>
-        </div>
-      </div>
-    </section>
+      </section>
+
     </div><!-- end .hero-wrapper -->
     <section class="bg-dark">
       <div
