@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.4.14"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.5.0",
+    "three": "^0.182.0"
   }
 }
