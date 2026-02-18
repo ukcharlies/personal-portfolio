@@ -6,6 +6,39 @@
     <link rel="stylesheet" href="src/output.css" />
     <script src="src/theme.js" defer></script>
 
+    <!-- Three.js (for Antigravity particles) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.min.js" defer></script>
+    <!-- GSAP (for Blob Cursor) -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+
+    <style>
+      /* Antigravity canvas container */
+      #antigravity-container {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+      #antigravity-container canvas {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      /* Let mouse events pass through to the section beneath */
+      .hero-wrapper {
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-wrapper > *:not(#antigravity-container) {
+        position: relative;
+        z-index: 1;
+      }
+      /* Hide default cursor on larger screens (blob replaces it) */
+      @media (min-width: 768px) {
+        * { cursor: none !important; }
+      }
+    </style>
+
     <title>home</title>
   </head>
   <body id="home" class="bg-dark text-primary">
@@ -24,6 +57,10 @@
         <a href="#contactMe" class="hover:text-primary">Contact</a>
       </div>
     </nav>
+
+    <div class="hero-wrapper">
+      <!-- Antigravity particle canvas lives here -->
+      <div id="antigravity-container"></div>
 
     <header
       class="bg-dark text-primary px-6 py-4 md:flex md:gap-10 md:py-14 md:justify-between md:items-center z-10"
@@ -117,6 +154,7 @@
         </div>
       </div>
     </section>
+    </div><!-- end .hero-wrapper -->
     <section class="bg-dark">
       <div
         class="sticky top-0 bg-dark py-4 z-[100] w-full border-b-2 border-accent shadow-md"
@@ -746,5 +784,10 @@
         />
       </svg>
     </button>
+
+    <!-- Antigravity particles (Three.js) -->
+    <script src="./scripts/antigravity.js" defer></script>
+    <!-- Blob cursor (GSAP) -->
+    <script src="./scripts/blobcursor.js" defer></script>
   </body>
 </html>
