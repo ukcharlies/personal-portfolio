@@ -10,23 +10,23 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ---------- helpers ---------- */
   function getThemeColor() {
     const style = getComputedStyle(document.documentElement);
-    return style.getPropertyValue("--color-primary").trim() || "#a3977d";
+    return style.getPropertyValue("--color-primary").trim() || "#f5ec00";
   }
 
   /* ---------- config ---------- */
   const CONFIG = {
-    count: 500,
-    magnetRadius: 12,
-    ringRadius: 10,
+    count: 300,
+    magnetRadius: 6,
+    ringRadius: 7,
     waveSpeed: 0.4,
-    waveAmplitude: 1.2,
-    particleSize: 2,
-    lerpSpeed: 0.04,
+    waveAmplitude: 1,
+    particleSize: 1.5,
+    lerpSpeed: 0.05,
     particleVariance: 1,
-    rotationSpeed: 0.05,
+    rotationSpeed: 0,
     depthFactor: 1,
     pulseSpeed: 3,
-    fieldStrength: 8,
+    fieldStrength: 10,
   };
 
   /* ---------- three.js setup ---------- */
