@@ -347,7 +347,17 @@
         background: rgba(16, 14, 12, 0.7);
         backdrop-filter: blur(12px);
         overflow: hidden;
-        transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.35s ease;
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          border-color 0.4s ease,
+          box-shadow 0.4s ease,
+          opacity 0.35s ease,
+          transform 0.35s ease;
+      }
+      .project-card.is-visible {
+        opacity: 1;
+        transform: translateY(0);
       }
       .project-card:hover {
         border-color: rgba(163, 151, 125, 0.35);
@@ -371,11 +381,76 @@
         overflow: hidden;
         background: linear-gradient(135deg, rgba(163,151,125,0.08), rgba(88,60,49,0.08));
       }
+      .card-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.55));
+        opacity: 0;
+        transition: opacity 0.32s ease;
+      }
       .card-image img {
         width: 100%; height: 100%; object-fit: cover;
         transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
       }
-      .project-card:hover .card-image img { transform: scale(1.06); }
+      .project-card:hover .card-image img,
+      .project-card:focus-within .card-image img {
+        transform: scale(1.06);
+      }
+      .project-card:hover .card-image::after,
+      .project-card:focus-within .card-image::after {
+        opacity: 1;
+      }
+
+      .card-quick-actions {
+        position: absolute;
+        left: 0.8rem;
+        bottom: 0.8rem;
+        z-index: 4;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      .project-card:hover .card-quick-actions,
+      .project-card:focus-within .card-quick-actions {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .card-quick-action {
+        width: 2.1rem;
+        height: 2.1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(248, 248, 248, 0.45);
+        background: rgba(0, 0, 0, 0.55);
+        color: #f8f8f8;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        backdrop-filter: blur(8px);
+        transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      }
+      .card-quick-action:hover,
+      .card-quick-action:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(245, 236, 0, 0.75);
+        background: rgba(0, 0, 0, 0.75);
+      }
+      .card-quick-action svg {
+        width: 0.9rem;
+        height: 0.9rem;
+      }
+      .light .card-quick-action {
+        border-color: rgba(88, 60, 49, 0.42);
+        background: rgba(248, 248, 248, 0.76);
+        color: var(--color-accent);
+      }
 
       /* Status badge */
       .card-status {
@@ -389,8 +464,9 @@
 
       /* Content area */
       .card-content {
-        padding: 1.4rem 1.5rem 1.5rem;
+        padding: 1.4rem 1.5rem 1.8rem;
         display: flex; flex-direction: column; gap: 0.8rem;
+        overflow: visible;
       }
       .card-type {
         font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
@@ -398,11 +474,17 @@
       }
       .card-title {
         font-size: 1.25rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.01em;
+        overflow-wrap: anywhere;
       }
-      .card-desc { font-size: 0.88rem; line-height: 1.7; opacity: 0.85; }
+      .card-desc {
+        font-size: 0.88rem;
+        line-height: 1.7;
+        opacity: 0.85;
+        overflow-wrap: anywhere;
+      }
 
       /* Tech pills */
-      .card-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+      .card-tech { display: flex; flex-wrap: wrap; gap: 0.44rem; }
       .tech-pill {
         display: inline-flex; align-items: center;
         padding: 0.22rem 0.58rem; border-radius: 999px;
@@ -411,6 +493,9 @@
         color: var(--color-primary);
         background: rgba(163, 151, 125, 0.08);
         transition: background 0.25s ease;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        white-space: normal;
       }
       .project-card:hover .tech-pill { background: rgba(163, 151, 125, 0.14); }
       .light .tech-pill {
@@ -427,18 +512,27 @@
       }
       .card-features li {
         font-size: 0.82rem; line-height: 1.55; padding-left: 1.2rem; position: relative; opacity: 0.88;
+        overflow-wrap: anywhere;
       }
       .card-features li::before {
         content: "→"; position: absolute; left: 0; color: var(--color-accent); font-weight: 700;
       }
 
       /* Link row */
-      .card-links { display: flex; gap: 0.6rem; margin-top: 0.3rem; }
+      .card-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 0.3rem;
+      }
       .card-link {
         display: inline-flex; align-items: center; gap: 0.3rem;
         padding: 0.5rem 0.9rem; border-radius: 0.6rem;
         font-size: 0.78rem; font-weight: 700; text-decoration: none;
         transition: all 0.25s ease;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        white-space: normal;
       }
       .card-link.primary-link {
         background: var(--color-primary); color: var(--color-dark);
@@ -449,6 +543,16 @@
         background: transparent;
       }
       .card-link.ghost-link:hover { border-color: var(--color-primary); background: rgba(163, 151, 125, 0.08); }
+      .card-link.read-more-link {
+        border: 1px dashed rgba(163, 151, 125, 0.4);
+        color: var(--color-primary);
+        background: rgba(163, 151, 125, 0.07);
+      }
+      .card-link.read-more-link:hover {
+        border-color: var(--color-accent);
+        color: var(--color-accent);
+        background: rgba(163, 151, 125, 0.12);
+      }
       .card-link svg { width: 14px; height: 14px; }
 
       .collab-section {
@@ -544,6 +648,18 @@
         .card-image { height: 200px; }
         .card-features { display: block; }
         .card-features ul { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (hover: none) {
+        .project-card {
+          opacity: 1;
+          transform: none;
+        }
+        .card-quick-actions {
+          opacity: 1;
+          transform: none;
+          pointer-events: auto;
+        }
       }
 
       @media (min-width: 1080px) {
@@ -1192,6 +1308,7 @@
     </button>
 
     <script src="../scripts/mobile-menu.js" defer></script>
+    <script src="../scripts/projects-animations.js" defer></script>
     <script src="../scripts/antigravity.js" defer></script>
     <script src="../scripts/blobcursor.js" defer></script>
   </body>
