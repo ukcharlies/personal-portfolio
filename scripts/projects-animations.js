@@ -1,11 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cards = Array.from(document.querySelectorAll(".project-card"));
+  const repoCache = new Map();
 
-  cards.forEach((card, index) => {
+  cards.forEach((card) => {
     const image = card.querySelector(".card-image");
     const linksWrap = card.querySelector(".card-links");
+    const techWrap = card.querySelector(".card-tech");
+    const statusEl = card.querySelector(".card-status");
 
     if (!image || !linksWrap) return;
+    const isEnterpriseCard = /enterprise/i.test(statusEl?.textContent || "");
 
     const linkEls = Array.from(linksWrap.querySelectorAll("a[href]"));
     const githubLink = linkEls.find((link) => /github\.com/i.test(link.href));
@@ -18,18 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
 
-    if (githubLink) {
-      const readmeHref = `${githubLink.href.replace(/\/$/, "")}#readme`;
-      const hasReadMore = linksWrap.querySelector(".read-more-link");
+    if (isEnterpriseCard) {
+      linksWrap.innerHTML = "";
+      linksWrap.appendChild(createEnterpriseDemoLink());
+    } else if (githubLink) {
+      // Keep one clear CTA in the card body: Read More.
+      linksWrap.innerHTML = "";
+      linksWrap.appendChild(createReadMoreLink(githubLink.href));
+    }
 
-      if (!hasReadMore) {
-        const readMoreLink = document.createElement("a");
-        readMoreLink.className = "card-link read-more-link";
-        readMoreLink.href = readmeHref;
-        readMoreLink.target = "_blank";
-        readMoreLink.rel = "noopener noreferrer";
-        readMoreLink.textContent = "Read More";
-        linksWrap.appendChild(readMoreLink);
+    if (githubLink) {
+      const repoPath = getRepoPathFromUrl(githubLink.href);
+      if (repoPath && techWrap) {
+        attachRepoInsights(techWrap, repoPath, repoCache);
       }
     }
 
@@ -46,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     }
 
-    if (githubLink) {
+    if (githubLink && !isEnterpriseCard) {
       quickActions.appendChild(
         createQuickAction({
           href: githubLink.href,
@@ -59,30 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (quickActions.children.length > 0) {
       image.appendChild(quickActions);
     }
-
-    card.style.transitionDelay = `${Math.min(index * 70, 500)}ms`;
   });
-
-  if (window.matchMedia("(hover: none)").matches) {
-    cards.forEach((card) => card.classList.add("is-visible"));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0.2,
-      rootMargin: "0px 0px -8% 0px",
-    }
-  );
-
-  cards.forEach((card) => observer.observe(card));
 });
 
 function createQuickAction({ href, label, icon }) {
@@ -95,6 +77,84 @@ function createQuickAction({ href, label, icon }) {
 
   link.innerHTML = icon === "github" ? githubIcon() : externalIcon();
   return link;
+}
+
+function createReadMoreLink(githubHref) {
+  const link = document.createElement("a");
+  link.className = "card-link read-more-link";
+  link.href = `${githubHref.replace(/\/$/, "")}#readme`;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "Read More";
+  return link;
+}
+
+function createEnterpriseDemoLink() {
+  const link = document.createElement("a");
+  link.className = "card-link primary-link";
+  link.href = "#";
+  link.textContent = "Live Demo";
+  link.setAttribute("data-demo-url-pending", "true");
+  return link;
+}
+
+function getRepoPathFromUrl(url) {
+  try {
+    const { hostname, pathname } = new URL(url);
+    if (!/github\.com$/i.test(hostname)) return null;
+    const parts = pathname.split("/").filter(Boolean);
+    if (parts.length < 2) return null;
+    return `${parts[0]}/${parts[1]}`;
+  } catch {
+    return null;
+  }
+}
+
+async function attachRepoInsights(techWrap, repoPath, repoCache) {
+  let repoData = repoCache.get(repoPath);
+
+  if (!repoData) {
+    try {
+      const response = await fetch(`https://api.github.com/repos/${repoPath}`);
+      if (!response.ok) return;
+      repoData = await response.json();
+      repoCache.set(repoPath, repoData);
+    } catch {
+      return;
+    }
+  }
+
+  if (!repoData) return;
+  if (techWrap.parentElement?.querySelector(".repo-insights")) return;
+
+  const insights = document.createElement("div");
+  insights.className = "repo-insights";
+
+  if (repoData.language) {
+    insights.appendChild(createInsightPill("Primary", repoData.language));
+  }
+  if (repoData.updated_at) {
+    insights.appendChild(
+      createInsightPill(
+        "Updated",
+        new Date(repoData.updated_at).toLocaleDateString(undefined, {
+          year: "numeric",
+          month: "short",
+        })
+      )
+    );
+  }
+
+  if (insights.children.length > 0) {
+    techWrap.insertAdjacentElement("afterend", insights);
+  }
+}
+
+function createInsightPill(label, value) {
+  const pill = document.createElement("span");
+  pill.className = "repo-insight";
+  pill.textContent = `${label}: ${value}`;
+  return pill;
 }
 
 function externalIcon() {

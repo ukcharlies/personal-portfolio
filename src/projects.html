@@ -347,17 +347,13 @@
         background: rgba(16, 14, 12, 0.7);
         backdrop-filter: blur(12px);
         overflow: hidden;
-        opacity: 0;
-        transform: translateY(22px);
+        display: flex;
+        flex-direction: column;
+        min-height: clamp(540px, 66vh, 700px);
         transition:
           border-color 0.4s ease,
           box-shadow 0.4s ease,
-          opacity 0.35s ease,
           transform 0.35s ease;
-      }
-      .project-card.is-visible {
-        opacity: 1;
-        transform: translateY(0);
       }
       .project-card:hover {
         border-color: rgba(163, 151, 125, 0.35);
@@ -405,21 +401,21 @@
 
       .card-quick-actions {
         position: absolute;
-        left: 0.8rem;
+        left: 50%;
         bottom: 0.8rem;
         z-index: 4;
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
         opacity: 0;
-        transform: translateY(10px);
+        transform: translate(-50%, 10px);
         pointer-events: none;
         transition: opacity 0.3s ease, transform 0.3s ease;
       }
       .project-card:hover .card-quick-actions,
       .project-card:focus-within .card-quick-actions {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate(-50%, 0);
         pointer-events: auto;
       }
       .card-quick-action {
@@ -467,6 +463,7 @@
         padding: 1.4rem 1.5rem 1.8rem;
         display: flex; flex-direction: column; gap: 0.8rem;
         overflow: visible;
+        flex: 1;
       }
       .card-type {
         font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
@@ -505,7 +502,7 @@
       }
 
       /* Key features */
-      .card-features { display: none; }
+      .card-features { display: block; }
       .card-features ul {
         list-style: none; padding: 0;
         display: grid; grid-template-columns: 1fr; gap: 0.35rem;
@@ -554,6 +551,31 @@
         background: rgba(163, 151, 125, 0.12);
       }
       .card-link svg { width: 14px; height: 14px; }
+
+      .repo-insights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.42rem;
+        margin-top: -0.15rem;
+      }
+      .repo-insight {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.28rem;
+        border: 1px solid rgba(163, 151, 125, 0.3);
+        border-radius: 999px;
+        padding: 0.22rem 0.56rem;
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: var(--color-primary);
+        background: rgba(163, 151, 125, 0.08);
+      }
+      .light .repo-insight {
+        border-color: rgba(88, 60, 49, 0.26);
+        color: var(--color-accent);
+        background: rgba(88, 60, 49, 0.06);
+      }
 
       .collab-section {
         border-top: 1px solid var(--line-dark);
@@ -646,18 +668,13 @@
           gap: 1.3rem;
         }
         .card-image { height: 200px; }
-        .card-features { display: block; }
         .card-features ul { grid-template-columns: 1fr 1fr; }
       }
 
       @media (hover: none) {
-        .project-card {
-          opacity: 1;
-          transform: none;
-        }
         .card-quick-actions {
           opacity: 1;
-          transform: none;
+          transform: translate(-50%, 0);
           pointer-events: auto;
         }
       }
@@ -677,6 +694,7 @@
         .projects-grid {
           grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: 1.45rem;
+          align-items: stretch;
         }
         .card-image { height: 210px; }
         .card-features ul { grid-template-columns: 1fr; }
