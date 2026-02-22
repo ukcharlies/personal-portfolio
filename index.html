@@ -37,14 +37,30 @@
         margin: 0;
         overflow-x: hidden;
         background:
-          radial-gradient(circle at 12% -8%, rgba(163, 151, 125, 0.18), transparent 34%),
-          radial-gradient(circle at 88% 15%, rgba(88, 60, 49, 0.28), transparent 36%),
+          radial-gradient(
+            circle at 12% -8%,
+            rgba(163, 151, 125, 0.18),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at 88% 15%,
+            rgba(88, 60, 49, 0.28),
+            transparent 36%
+          ),
           var(--color-dark);
       }
       .light .site-body {
         background:
-          radial-gradient(circle at 12% -8%, rgba(88, 60, 49, 0.14), transparent 34%),
-          radial-gradient(circle at 88% 15%, rgba(163, 151, 125, 0.22), transparent 36%),
+          radial-gradient(
+            circle at 12% -8%,
+            rgba(88, 60, 49, 0.14),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at 88% 15%,
+            rgba(163, 151, 125, 0.22),
+            transparent 36%
+          ),
           var(--color-dark);
       }
 
@@ -220,7 +236,11 @@
       }
       .light .hero-wrapper::after {
         background:
-          linear-gradient(to bottom, rgba(248, 248, 248, 0.16), transparent 24%),
+          linear-gradient(
+            to bottom,
+            rgba(248, 248, 248, 0.16),
+            transparent 24%
+          ),
           linear-gradient(to bottom, transparent 70%, rgba(248, 248, 248, 0.3));
       }
       .hero-wrapper > *:not(#antigravity-container) {
@@ -259,7 +279,11 @@
         height: clamp(190px, 30vw, 330px);
         border-radius: 50%;
         padding: 5px;
-        background: linear-gradient(140deg, var(--color-accent), var(--color-primary));
+        background: linear-gradient(
+          140deg,
+          var(--color-accent),
+          var(--color-primary)
+        );
         box-shadow:
           0 24px 60px rgba(0, 0, 0, 0.35),
           0 0 90px rgba(163, 151, 125, 0.18);
@@ -440,7 +464,7 @@
 
       .skills-section > div:nth-child(2) {
         margin-top: 1.2rem;
-        padding-top: 0.6rem;
+        padding: 0.6rem clamp(1rem, 3vw, 2.4rem);
       }
 
       .skills-section .grid.grid-cols-2 {
@@ -465,6 +489,28 @@
         flex-direction: column;
         gap: 0.7rem;
       }
+      .light .skills-section .grid.grid-cols-2 > div > .w-full {
+        background: linear-gradient(
+          160deg,
+          rgba(56, 46, 44, 0.95),
+          rgba(56, 46, 44, 0.85)
+        );
+        border-color: rgba(88, 60, 49, 0.45);
+        color: #f0ebe4;
+      }
+      .light .skills-section .grid.grid-cols-2 p.uppercase {
+        color: #d6c8b1 !important;
+      }
+      .light .skills-section .grid.grid-cols-2 p.text-left {
+        color: #ede7dd !important;
+      }
+      .light .skills-section .grid.grid-cols-2 a.skill-cv-link {
+        color: #d6c8b1 !important;
+        border-color: rgba(214, 200, 177, 0.55) !important;
+      }
+      .light .skills-section .grid.grid-cols-2 a.skill-cv-link:hover {
+        background: rgba(214, 200, 177, 0.15) !important;
+      }
       .skills-section .grid.grid-cols-2 > div > .w-full img {
         width: 3.4rem;
         height: 3.4rem;
@@ -473,7 +519,7 @@
       .skills-section .grid.grid-cols-2 p.text-left {
         line-height: 1.68;
       }
-      .skills-section .grid.grid-cols-2 a[href=""] {
+      .skills-section .grid.grid-cols-2 a.skill-cv-link {
         display: inline-flex;
         width: fit-content;
         border-radius: 999px;
@@ -482,6 +528,11 @@
         color: var(--color-accent);
         font-size: 0.75rem;
         font-weight: 700;
+        text-decoration: none;
+        transition: background 0.25s ease;
+      }
+      .skills-section .grid.grid-cols-2 a.skill-cv-link:hover {
+        background: rgba(88, 60, 49, 0.12);
       }
 
       .education-section {
@@ -549,6 +600,10 @@
       .contact-section input {
         border-radius: 0.7rem !important;
       }
+      .contact-section textarea {
+        border-radius: 0.7rem !important;
+        font-family: inherit;
+      }
       .contact-section button {
         border-radius: 0.7rem !important;
       }
@@ -614,7 +669,7 @@
         }
         .skills-section > div:nth-child(2) {
           margin-top: 1.8rem;
-          padding-top: 0.9rem;
+          padding: 0.9rem clamp(1.5rem, 4vw, 3rem);
         }
         .education-section .edu-card > div:last-child {
           border-top: 0 !important;
@@ -783,7 +838,7 @@
 
       <div class="text-primary px-4 py-4 mt-6 md:flex lg:px-8">
         <div class="grid grid-cols-2 gap-4 w-full">
-          <!-- Row 1: Top-left, empty on right -->
+          <!-- Frontend Engineering -->
           <div class="flex items-start justify-center">
             <div class="w-full p-1 text-dark bg-primary rounded-md mx-auto">
               <img
@@ -792,9 +847,7 @@
                 class="w-20 h-20 p-2"
               />
               <div class="px-2">
-                <p
-                  class="uppercase font-dotgothic text-xl font- mb-1 text-accent"
-                >
+                <p class="uppercase font-dotgothic text-xl mb-1 text-accent">
                   Frontend Engineering & UI Development
                 </p>
                 <p class="text-left text-sm font-thin mb-1">
@@ -809,19 +862,16 @@
                   fast-loading, high-performing applications.
                 </p>
                 <a
-                  href=""
-                  class="uppercase outline-1 hover:outline-dashed w-1/2 text-center"
-                  >more info !</a
+                  href="./docs/UKACHI CHUKA CHARLES hr.docx"
+                  target="_blank"
+                  class="uppercase skill-cv-link"
+                  >View CV ↗</a
                 >
               </div>
             </div>
           </div>
-          <div></div>
-          <!-- Empty space on the right -->
 
-          <!-- Row 2: empty on left, Bottom-right -->
-          <div></div>
-          <!-- Empty space on the left -->
+          <!-- Backend Development -->
           <div class="flex items-start justify-center">
             <div class="w-full p-1 text-dark bg-primary rounded-md mx-auto">
               <img
@@ -830,9 +880,7 @@
                 class="w-20 h-20 p-2"
               />
               <div class="px-2">
-                <p
-                  class="uppercase font-dotgothic text-xl font- mb-1 text-accent"
-                >
+                <p class="uppercase font-dotgothic text-xl mb-1 text-accent">
                   Backend Development & API Design
                 </p>
                 <p class="text-left text-sm font-thin mb-1">
@@ -845,15 +893,16 @@
                   practices for data integrity and performance.
                 </p>
                 <a
-                  href=""
-                  class="uppercase outline-1 hover:outline-dashed w-1/2 text-center"
-                  >more info !</a
+                  href="./docs/UKACHI CHUKA CHARLES hr.docx"
+                  target="_blank"
+                  class="uppercase skill-cv-link"
+                  >View CV ↗</a
                 >
               </div>
             </div>
           </div>
 
-          <!-- Row 3: Top-left, empty on right -->
+          <!-- Full-Stack Development -->
           <div class="flex items-start justify-center">
             <div class="w-full p-1 text-dark bg-primary rounded-md mx-auto">
               <img
@@ -862,9 +911,7 @@
                 class="w-20 h-20 p-2"
               />
               <div class="px-2">
-                <p
-                  class="uppercase font-dotgothic text-xl font- mb-1 text-accent"
-                >
+                <p class="uppercase font-dotgothic text-xl mb-1 text-accent">
                   Full-Stack Development
                 </p>
                 <p class="text-left text-sm font-thin mb-1">
@@ -881,19 +928,16 @@
                   experience.
                 </p>
                 <a
-                  href=""
-                  class="uppercase outline-1 hover:outline-dashed w-1/2 text-center"
-                  >more info !</a
+                  href="./docs/UKACHI CHUKA CHARLES hr.docx"
+                  target="_blank"
+                  class="uppercase skill-cv-link"
+                  >View CV ↗</a
                 >
               </div>
             </div>
           </div>
-          <div></div>
-          <!-- Empty space on the right -->
 
-          <!-- Row 4: empty on left, Bottom-right -->
-          <div></div>
-          <!-- Empty space on the left -->
+          <!-- Software Dev & System Architecture -->
           <div class="flex items-start justify-center">
             <div class="w-full p-1 text-dark bg-primary rounded-md mx-auto">
               <img
@@ -902,9 +946,7 @@
                 class="w-20 h-20 p-2"
               />
               <div class="px-2">
-                <p
-                  class="uppercase font-dotgothic text-xl font- mb-1 text-accent"
-                >
+                <p class="uppercase font-dotgothic text-xl mb-1 text-accent">
                   Software Development & System Architecture
                 </p>
                 <p class="text-left text-sm font-thin mb-1">
@@ -917,15 +959,16 @@
                   that are robust, efficient, and future-proof.
                 </p>
                 <a
-                  href=""
-                  class="uppercase outline-1 hover:outline-dashed w-1/2 text-center"
-                  >more info !</a
+                  href="./docs/UKACHI CHUKA CHARLES hr.docx"
+                  target="_blank"
+                  class="uppercase skill-cv-link"
+                  >View CV ↗</a
                 >
               </div>
             </div>
           </div>
 
-          <!-- Row 5: Top-left, empty on right -->
+          <!-- Technical Communication -->
           <div class="flex items-start justify-center">
             <div class="w-full p-1 text-dark bg-primary rounded-md mx-auto">
               <img
@@ -934,9 +977,7 @@
                 class="w-20 h-20 p-2"
               />
               <div class="px-2">
-                <p
-                  class="uppercase font-dotgothic text-xl font- mb-1 text-accent"
-                >
+                <p class="uppercase font-dotgothic text-xl mb-1 text-accent">
                   Technical Communication & Team Collaboration
                 </p>
                 <p class="text-left text-sm font-thin mb-1">
@@ -946,22 +987,19 @@
                   audiences. I've collaborated on cross-functional teams using
                   Agile methodologies, participated in code reviews, and
                   contributed to seamless project execution with tools like Git,
-                  GitHub, Trello, Jara and Slack.
+                  GitHub, Trello, Jira and Slack.
                 </p>
                 <a
-                  href=""
-                  class="uppercase outline-1 hover:outline-dashed w-1/2 text-center"
-                  >more info !</a
+                  href="./docs/UKACHI CHUKA CHARLES hr.docx"
+                  target="_blank"
+                  class="uppercase skill-cv-link"
+                  >View CV ↗</a
                 >
               </div>
             </div>
           </div>
-          <div></div>
-          <!-- Empty space on the right -->
 
-          <!-- Row 6: empty on left, Bottom-right -->
-          <div></div>
-          <!-- Empty space on the left -->
+          <!-- Application Security -->
           <div class="flex items-start justify-center">
             <div class="w-full p-1 text-dark bg-primary rounded-md mx-auto">
               <img
@@ -970,9 +1008,7 @@
                 class="w-20 h-20 p-2"
               />
               <div class="px-2">
-                <p
-                  class="uppercase font-dotgothic text-xl font- mb-1 text-accent"
-                >
+                <p class="uppercase font-dotgothic text-xl mb-1 text-accent">
                   Application Security & Cybersecurity Fundamentals
                 </p>
                 <p class="text-left text-sm font-thin mb-1">
@@ -985,9 +1021,10 @@
                   unauthorized access.
                 </p>
                 <a
-                  href=""
-                  class="uppercase outline-1 hover:outline-dashed w-1/2 text-center"
-                  >more info !</a
+                  href="./docs/UKACHI CHUKA CHARLES hr.docx"
+                  target="_blank"
+                  class="uppercase skill-cv-link"
+                  >View CV ↗</a
                 >
               </div>
             </div>
@@ -995,8 +1032,12 @@
         </div>
       </div>
     </section>
-    <section class="bg-accent py-5 px-3 lg:px-6 section-stack education-section">
-      <div class="bg-accent py-4 w-full border-b-accent shadow-md section-header">
+    <section
+      class="bg-accent py-5 px-3 lg:px-6 section-stack education-section"
+    >
+      <div
+        class="bg-accent py-4 w-full border-b-accent shadow-md section-header"
+      >
         <p
           class="text-4xl font-dotgothic tracking-widest uppercase text-left text-light"
         >
@@ -1004,7 +1045,9 @@
         </p>
       </div>
 
-      <div class="w-3/4 mx-auto mb-3 shadow-md lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent mt-6 edu-card">
+      <div
+        class="w-3/4 mx-auto mb-3 shadow-md lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm bg-transparent mt-6 edu-card"
+      >
         <div
           class="bg-dark text-primary px-3 py-4 rounded-lg text-center lg:w-1/4 lg:min-w-[220px] lg:max-w-[300px] lg:flex lg:flex-col lg:justify-center"
         >
@@ -1027,7 +1070,9 @@
           </p>
         </div>
       </div>
-      <div class="w-3/4 mx-auto mb-3 shadow-md lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm edu-card">
+      <div
+        class="w-3/4 mx-auto mb-3 shadow-md lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm edu-card"
+      >
         <div
           class="bg-dark text-primary px-3 py-4 rounded-lg text-center lg:w-1/4 lg:min-w-[220px] lg:max-w-[300px] lg:flex lg:flex-col lg:justify-center"
         >
@@ -1059,7 +1104,9 @@
         >
           Certification
         </p>
-        <div class="w-3/4 mx-auto shadow-md rounded-lg bg-card-front mb-4 lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm text-primary edu-card">
+        <div
+          class="w-3/4 mx-auto shadow-md rounded-lg bg-card-front mb-4 lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm text-primary edu-card"
+        >
           <div
             class="bg-card-front px-3 py-4 rounded-t-lg text-center lg:rounded-lg lg:w-1/4 lg:min-w-[220px] lg:max-w-[300px] lg:flex lg:flex-col lg:justify-center"
           >
@@ -1077,7 +1124,9 @@
             </p>
           </div>
         </div>
-        <div class="w-3/4 mx-auto shadow-md rounded-lg bg-card-front mb-4 lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm text-primary edu-card">
+        <div
+          class="w-3/4 mx-auto shadow-md rounded-lg bg-card-front mb-4 lg:w-[80vw] lg:flex gap-2 lg:rounded-lg lg:shadow-sm text-primary edu-card"
+        >
           <div
             class="bg-card-front px-3 py-4 rounded-t-lg text-center lg:rounded-lg lg:w-1/4 lg:min-w-[220px] lg:max-w-[300px] lg:flex lg:flex-col lg:justify-center"
           >
@@ -1100,7 +1149,10 @@
         </div>
       </div>
     </section>
-    <section class="bg-dark text-primary section-stack resume-section" id="resume">
+    <section
+      class="bg-dark text-primary section-stack resume-section"
+      id="resume"
+    >
       <div
         class="sticky top-0 bg-dark py-4 z-[100] w-full border-b-2 border-accent shadow-md section-header"
         style="position: -webkit-sticky; position: sticky"
@@ -1112,10 +1164,186 @@
         </p>
       </div>
 
-      <div class="flex-col px-4 lg:w-[80%] lg:max-w-5xl lg:mx-auto mt-6 experience-grid">
-        <!-- First job -->
+      <div
+        class="flex-col px-4 lg:w-[80%] lg:max-w-5xl lg:mx-auto mt-6 experience-grid"
+      >
+        <!-- NMRC — Software Developer -->
         <div class="lg:flex lg:gap-8 lg:mb-12 experience-row">
-          <!-- Left column - job info -->
+          <div class="lg:w-1/4 lg:min-w-[250px] experience-meta">
+            <div
+              class="capitalize px-3 py-2 flex flex-col items-center md:justify-self-center md:text-3xl lg:bg-accent lg:px-6 lg:py-6 lg:rounded-lg text-light"
+            >
+              <img
+                src="./images/programmer.png"
+                alt=""
+                class="h-10 md:h-24 lg:mx-auto lg:mb-4"
+              />
+              <p class="text-sm font-thin lg:text-center">
+                February 2025 – Present
+              </p>
+              <p
+                class="font-dotgothic text-xl font-bold tracking-widest lg:text-center lg:mt-2"
+              >
+                Software Developer
+              </p>
+              <p
+                class="px-2 py-1 border inline-block w-2/3 border-primary border-dotted bg-primary text-dark font-extrabold rounded-lg lg:w-full lg:mt-4 lg:text-center"
+              >
+                Nigerian Mortgage Refinance Company (NMRC) | Remote
+              </p>
+            </div>
+          </div>
+          <div
+            class="lg:w-3/4 lg:border lg:border-accent lg:rounded-lg lg:px-8 lg:py-6 experience-details"
+          >
+            <ul class="px-3 py-2 md:px-3 lg:px-0 lg:py-0">
+              <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
+              <li
+                class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full lg:text-left lg:leading-relaxed lg:mb-6 lg:text-base"
+              >
+                Built and deployed a Withholding Tax Certificate System using
+                the PERN stack (PostgreSQL, Express, React, Node.js) that
+                improved operational efficiency by 70% and reduced manual errors
+                by 90%, earning the MVP Award and a Certificate of Achievement.
+              </li>
+              <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
+              <li
+                class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full lg:text-left lg:leading-relaxed lg:mb-6 lg:text-base"
+              >
+                Developed an Appraisal Management Application that streamlined
+                performance reviews and reduced appraisal timelines by 30%, with
+                role-based access control and dynamic scoring.
+              </li>
+              <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
+              <li
+                class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full lg:text-left lg:leading-relaxed lg:text-base"
+              >
+                Automated Key Risk Indicator (KRI) reporting for compliance, and
+                collaborated cross-functionally with HR, IT, and management
+                teams to deliver internal enterprise tools.
+              </li>
+              <div
+                class="w-72 h-1 bg-accent my-2 mx-auto md:mb-4 lg:hidden"
+              ></div>
+            </ul>
+          </div>
+        </div>
+
+        <!-- D'Hub Technologies — Frontend Engineer -->
+        <div class="lg:flex lg:gap-8 lg:mb-12 experience-row">
+          <div class="lg:w-1/4 lg:min-w-[250px] experience-meta">
+            <div
+              class="capitalize px-3 py-2 flex flex-col items-center md:justify-self-center md:text-3xl lg:bg-accent lg:px-6 lg:py-6 lg:rounded-lg text-light"
+            >
+              <img
+                src="./images/programmer.png"
+                alt=""
+                class="h-10 md:h-24 lg:mx-auto lg:mb-4"
+              />
+              <p class="text-sm font-thin lg:text-center">
+                September 2025 – Present
+              </p>
+              <p
+                class="font-dotgothic text-xl font-bold tracking-widest lg:text-center lg:mt-2"
+              >
+                Frontend Engineer
+              </p>
+              <p
+                class="px-2 py-1 border inline-block w-2/3 border-primary border-dotted bg-primary text-dark font-extrabold rounded-lg lg:w-full lg:mt-4 lg:text-center"
+              >
+                D'Hub Technologies | Remote
+              </p>
+            </div>
+          </div>
+          <div
+            class="lg:w-3/4 lg:border lg:border-accent lg:rounded-lg lg:px-8 lg:py-6 experience-details"
+          >
+            <ul class="px-3 py-2 md:px-3 lg:px-0 lg:py-0">
+              <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
+              <li
+                class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full lg:text-left lg:leading-relaxed lg:mb-6 lg:text-base"
+              >
+                Building and maintaining frontend features using Next.js,
+                TypeScript, and Tailwind CSS, translating Figma designs into
+                pixel-perfect, accessible UI components.
+              </li>
+              <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
+              <li
+                class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full lg:text-left lg:leading-relaxed lg:text-base"
+              >
+                Contributed to a company website revamp, improving performance,
+                responsiveness, and user experience across the platform.
+              </li>
+              <div
+                class="w-72 h-1 bg-accent my-2 mx-auto md:mb-4 lg:hidden"
+              ></div>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Anchorsoft Academy — Instructor & Developer -->
+        <div class="lg:flex lg:gap-8 lg:mb-12 experience-row">
+          <div class="lg:w-1/4 lg:min-w-[250px] experience-meta">
+            <div
+              class="capitalize px-3 py-2 flex flex-col items-center md:justify-self-center md:text-3xl lg:bg-accent lg:px-6 lg:py-6 lg:rounded-lg text-light"
+            >
+              <img
+                src="./images/programmer.png"
+                alt=""
+                class="h-10 md:h-24 lg:mx-auto lg:mb-4"
+              />
+              <p class="text-sm font-thin lg:text-center">
+                July 2024 – January 2025
+              </p>
+              <p
+                class="font-dotgothic text-xl font-bold tracking-widest lg:text-center lg:mt-2"
+              >
+                Instructor & Developer
+              </p>
+              <p
+                class="px-2 py-1 border inline-block w-2/3 border-primary border-dotted bg-primary text-dark font-extrabold rounded-lg lg:w-full lg:mt-4 lg:text-center"
+              >
+                Anchorsoft Academy | Onsite
+              </p>
+            </div>
+          </div>
+          <div
+            class="lg:w-3/4 lg:border lg:border-accent lg:rounded-lg lg:px-8 lg:py-6 experience-details"
+          >
+            <ul class="px-3 py-2 md:px-3 lg:px-0 lg:py-0">
+              <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
+              <li
+                class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full lg:text-left lg:leading-relaxed lg:mb-6 lg:text-base"
+              >
+                Taught web development fundamentals and backend concepts to
+                students, covering HTML, CSS, JavaScript, and Express.js with
+                hands-on project-based learning.
+              </li>
+              <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
+              <li
+                class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full lg:text-left lg:leading-relaxed lg:mb-6 lg:text-base"
+              >
+                Built a wallet transfer demo backend using Express and
+                PostgreSQL, demonstrating real-world API design, transaction
+                handling, and database operations.
+              </li>
+              <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
+              <li
+                class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full lg:text-left lg:leading-relaxed lg:text-base"
+              >
+                Conducted code reviews, mentored junior developers, and
+                contributed to curriculum development for the academy's training
+                programs.
+              </li>
+              <div
+                class="w-72 h-1 bg-accent my-2 mx-auto md:mb-4 lg:hidden"
+              ></div>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ALX — Software Engineer Trainee -->
+        <div class="lg:flex lg:gap-8 lg:mb-12 experience-row">
           <div class="lg:w-1/4 lg:min-w-[250px] experience-meta">
             <div
               class="capitalize px-3 py-2 flex flex-col items-center md:justify-self-center md:text-3xl lg:bg-accent lg:px-6 lg:py-6 lg:rounded-lg text-light"
@@ -1140,10 +1368,10 @@
               </p>
             </div>
           </div>
-
-          <!-- Right column - responsibilities -->
-          <div class="lg:w-3/4 lg:border lg:border-accent lg:rounded-lg lg:px-8 lg:py-6 experience-details">
-            <ul class="px-3 py-2 md:px-3 md: lg:px-0 lg:py-0">
+          <div
+            class="lg:w-3/4 lg:border lg:border-accent lg:rounded-lg lg:px-8 lg:py-6 experience-details"
+          >
+            <ul class="px-3 py-2 md:px-3 lg:px-0 lg:py-0">
               <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
               <li
                 class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full lg:text-left lg:leading-relaxed lg:mb-6 lg:text-base"
@@ -1153,12 +1381,8 @@
                 administration, and automation. Progressed into low-level
                 programming with C, strengthening my grasp of memory management,
                 data structures, and algorithmic problem-solving. Transitioned
-                into full-stack web development, working extensively with
-                Python, JavaScript, Node.js, React, and PostgreSQL. Built and
-                deployed scalable web applications while learning backend API
-                development, database design, and frontend engineering. Applied
-                Agile methodologies, version control (Git/GitHub), and best
-                practices in software development.
+                into full-stack web development with Python, JavaScript,
+                Node.js, React, and PostgreSQL.
               </li>
               <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
               <li
@@ -1166,10 +1390,9 @@
               >
                 Gained practical experience in troubleshooting, debugging, and
                 optimizing web applications, collaborating with peers to design
-                and implement real-world projects. The program emphasized
-                technical communication, teamwork, and problem-solving,
-                preparing me to work in high-performance engineering
-                environments.
+                and implement real-world projects. Applied Agile methodologies,
+                version control (Git/GitHub), and best practices in software
+                development.
               </li>
               <div
                 class="w-72 h-1 bg-accent my-2 mx-auto md:mb-4 lg:hidden"
@@ -1178,9 +1401,8 @@
           </div>
         </div>
 
-        <!-- Second job -->
+        <!-- Uridium — Cyber Security Intern -->
         <div class="lg:flex lg:gap-8 experience-row">
-          <!-- Left column - job info -->
           <div class="lg:w-1/4 lg:min-w-[250px] experience-meta">
             <div
               class="capitalize px-3 py-2 md:justify-self-center md:text-3xl lg:bg-accent lg:px-6 lg:py-6 lg:rounded-lg flex flex-col items-center text-light"
@@ -1205,34 +1427,27 @@
               </p>
             </div>
           </div>
-
-          <!-- Right column - responsibilities -->
-          <div class="lg:w-3/4 lg:border lg:border-accent lg:rounded-lg lg:px-8 lg:py-6 experience-details">
+          <div
+            class="lg:w-3/4 lg:border lg:border-accent lg:rounded-lg lg:px-8 lg:py-6 experience-details"
+          >
             <ul class="px-3 py-2 md:px-3 lg:px-0 lg:py-0">
               <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
               <li
                 class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full lg:text-left lg:leading-relaxed lg:mb-6 lg:text-base"
               >
-                Expanded my technical knowledge by interning at Uridium
-                Technologies, where I worked on security solutions deployment,
-                threat detection, and risk assessment. Assisted the IT support
-                team in configuring and deploying IBM Q-Radar security
-                solutions, gaining hands-on experience in SIEM (Security
-                Information and Event Management) systems and security
-                analytics. Also participated in cybersecurity training programs,
-                strengthening my understanding of network security, endpoint
-                protection, and security operations.
+                Worked on security solutions deployment, threat detection, and
+                risk assessment. Assisted in configuring and deploying IBM
+                Q-Radar security solutions, gaining hands-on experience in SIEM
+                systems and security analytics.
               </li>
               <div class="w-72 h-1 bg-accent my-2 mx-auto lg:hidden"></div>
               <li
                 class="list-item list-disc list-inside text-center md:text-balance md:w-96 md:mx-auto lg:w-full lg:text-left lg:leading-relaxed lg:text-base"
               >
                 Engaged in collaborative brainstorming sessions to address
-                company security challenges, enhancing my problem-solving and
-                analytical skills in the cybersecurity domain. This experience
-                provided me with a strong foundation in security architecture,
-                compliance, and risk mitigation strategies, complementing my
-                software engineering expertise.
+                company security challenges, building a strong foundation in
+                security architecture, compliance, and risk mitigation
+                strategies.
               </li>
               <div
                 class="w-72 h-1 bg-accent my-2 mx-auto md:mb-4 lg:hidden"
@@ -1268,26 +1483,37 @@
           />
           <p class="font-dotgothic text-3xl font-thin pb-4">Get in touch</p>
           <p class="text-sm font-bold mb-1">Let's work together</p>
-          <form action="" class="grid gap-3 mt-5 w-[90%]">
+          <form
+            action="https://formspree.io/f/xreayoaq"
+            method="POST"
+            class="grid gap-3 mt-5 w-[90%]"
+          >
             <input
               type="text"
+              name="name"
               placeholder="Name"
+              required
               class="rounded-lg px-2 py-2 text-primary outline-4 outline-primary bg-dark border border-accent placeholder-primary"
             />
             <input
               type="email"
+              name="email"
               placeholder="Email"
+              required
               class="rounded-lg px-2 py-2 text-primary outline-4 outline-primary bg-dark border border-accent placeholder-primary"
             />
-            <input
-              type="text"
-              placeholder="Message"
-              class="rounded-lg px-2 py-2 text-primary outline-4 outline-primary bg-dark border border-accent placeholder-primary"
-            />
+            <textarea
+              name="message"
+              placeholder="Your message..."
+              rows="4"
+              required
+              class="rounded-lg px-2 py-2 text-primary outline-4 outline-primary bg-dark border border-accent placeholder-primary resize-y"
+            ></textarea>
             <button
-              class="bg-primary text-dark w-1/2 mx-auto rounded-lg font-bold p-2 hover:bg-accent hover:text-light"
+              type="submit"
+              class="bg-primary text-dark w-1/2 mx-auto rounded-lg font-bold p-2 hover:bg-accent hover:text-light transition-colors"
             >
-              Submit
+              Send Message
             </button>
           </form>
         </div>
@@ -1305,9 +1531,7 @@
             class="hover:underline underline-offset-4"
             >Call me on 07063165518 or 08065192105</a
           >
-          <p class="capitalize lg:hidden">
-            14 astro world street, oke-afa isolo, lagos.
-          </p>
+          <p class="capitalize lg:hidden">14 astro world street, lagos.</p>
           <div class="symbols flex py-6 justify-between w-1/3 mx-auto">
             <a
               href="https://www.linkedin.com/in/chuka-ukachi-70b525262/"
@@ -1345,7 +1569,9 @@
         footer
       </p>
       <p class="capitalize text-center">copyright &copy; your website 2024</p>
-      <div class="flex justify-between items-center w-1/2 mx-auto capitalize pt-2 footer-links">
+      <div
+        class="flex justify-between items-center w-1/2 mx-auto capitalize pt-2 footer-links"
+      >
         <a href="" class="hover:underline underline-offset-4 hover:text-accent"
           >privacy</a
         ><span class="mb-2">.</span>
