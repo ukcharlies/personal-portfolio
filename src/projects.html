@@ -11,6 +11,10 @@
       src="https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.min.js"
       defer
     ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+      defer
+    ></script>
 
     <style>
       :root {
@@ -302,16 +306,31 @@
 
       .project-card {
         height: 460px;
+        perspective: 1400px;
       }
       .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
         border-radius: 1rem;
-        overflow: hidden;
         box-shadow: 0 16px 46px rgba(0, 0, 0, 0.22);
+      }
+      .project-card:hover .card-inner,
+      .project-card:focus-within .card-inner {
+        transform: rotateY(180deg);
       }
       .card-front,
       .card-back {
+        position: absolute;
+        inset: 0;
         border: 1px solid rgba(163, 151, 125, 0.22);
         border-radius: 1rem;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        overflow: hidden;
       }
       .light .card-front,
       .light .card-back {
@@ -329,6 +348,9 @@
       .card-back p,
       .card-back li {
         line-height: 1.62;
+      }
+      .card-back {
+        transform: rotateY(180deg) translateZ(1px);
       }
       .card-back ul {
         margin: 0;
@@ -396,12 +418,38 @@
       .site-footer {
         max-width: var(--content-max);
         margin: 0 auto;
-        padding: 1.6rem clamp(1rem, 4vw, 2.8rem);
+        padding: 1.8rem clamp(1rem, 4vw, 2.8rem) 2.2rem;
+        border-top: 1px solid var(--line-dark);
       }
       .footer-row {
         display: flex;
         flex-direction: column;
-        gap: 1.2rem;
+        gap: 1.4rem;
+      }
+      .footer-brand-line {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.8rem;
+      }
+      .footer-mini-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      .footer-mini-nav a {
+        padding: 0.35rem 0.65rem;
+        border: 1px solid rgba(163, 151, 125, 0.35);
+        border-radius: 999px;
+        color: var(--color-primary);
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .footer-mini-nav a:hover {
+        border-color: var(--color-accent);
+        color: var(--color-accent);
       }
       .footer-socials {
         display: flex;
@@ -412,6 +460,10 @@
       .footer-socials svg {
         width: 2rem;
         height: 2rem;
+      }
+      .footer-note {
+        opacity: 0.82;
+        font-size: 0.9rem;
       }
 
       #theme-toggle {
@@ -900,9 +952,16 @@
 
     <footer class="site-footer">
       <div class="footer-row">
-        <div>
-          <img src="../images/clear logo.png" alt="logo" class="w-36 h-auto mb-3" />
-          <p>Crafting code today, shaping tomorrow's future.</p>
+        <div class="footer-brand-line">
+          <div>
+            <img src="../images/clear logo.png" alt="logo" class="w-36 h-auto mb-3" />
+            <p class="footer-note">Crafting code today, shaping tomorrow's future.</p>
+          </div>
+          <nav class="footer-mini-nav" aria-label="Footer navigation">
+            <a href="../index.html">Home</a>
+            <a href="../index.html#resume">Resume</a>
+            <a href="../index.html#contactMe">Contact</a>
+          </nav>
         </div>
         <div class="footer-socials">
           <a
@@ -936,7 +995,7 @@
           </a>
         </div>
       </div>
-      <div class="border-t border-accent mt-6 pt-5 text-center">
+      <div class="border-t border-accent mt-6 pt-5 text-center footer-note">
         <p>© 2026 Ukachi Charles. All rights reserved.</p>
       </div>
     </footer>
@@ -980,5 +1039,6 @@
 
     <script src="../scripts/mobile-menu.js" defer></script>
     <script src="../scripts/antigravity.js" defer></script>
+    <script src="../scripts/blobcursor.js" defer></script>
   </body>
 </html>

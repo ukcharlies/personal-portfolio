@@ -4,26 +4,29 @@
  * Reads --color-accent from CSS custom properties so it follows the theme.
  */
 document.addEventListener("DOMContentLoaded", function () {
+  if (typeof gsap === "undefined") return;
+
   /* ---------- config ---------- */
   const CONFIG = {
     blobType: "circle",
     trailCount: 3,
-    sizes: [121, 125, 75],
-    innerSizes: [35, 35, 25],
+    sizes: [86, 62, 44],
+    innerSizes: [20, 14, 10],
     innerColor: "rgba(255,255,255,0.8)",
-    opacities: [0.6, 0.6, 0.6],
-    shadowBlur: 42,
-    shadowOffsetX: 32,
-    shadowOffsetY: 10,
-    shadowColor: "rgba(0,0,0,0.75)",
-    filterStdDeviation: 30,
+    opacities: [0.5, 0.42, 0.35],
+    shadowBlur: 26,
+    shadowOffsetX: 14,
+    shadowOffsetY: 8,
+    shadowColor: "rgba(0,0,0,0.45)",
+    filterStdDeviation: 24,
     filterColorMatrixValues:
-      "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -10",
+      "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -8",
     useFilter: true,
-    fastDuration: 0.54,
-    slowDuration: 0.66,
-    fastEase: "power3.out",
-    slowEase: "power1.out",
+    leadLerp: 0.28,
+    midLerp: 0.17,
+    tailLerp: 0.12,
+    maxStretch: 0.34,
+    maxRotateDeg: 22,
     zIndex: 90,
   };
 
@@ -79,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
     blob.dataset.index = i;
     blob.style.cssText = `
       position: absolute; will-change: transform;
-      transform: translate(-50%, -50%);
       width: ${s}px; height: ${s}px;
       border-radius: ${br};
       background-color: ${fillColor};
@@ -116,29 +118,96 @@ document.addEventListener("DOMContentLoaded", function () {
     attributeFilter: ["class"],
   });
 
+  blobs.forEach((blob) => {
+    gsap.set(blob, { xPercent: -50, yPercent: -50 });
+  });
+
   /* ---------- movement ---------- */
+  const state = {
+    targetX: window.innerWidth / 2,
+    targetY: window.innerHeight / 2,
+    interactive: false,
+  };
+
+  const points = blobs.map(() => ({
+    x: state.targetX,
+    y: state.targetY,
+    vx: 0,
+    vy: 0,
+  }));
+
   function onMove(e) {
-    const x = e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? 0;
-    const y = e.clientY ?? (e.touches && e.touches[0]?.clientY) ?? 0;
-    blobs.forEach((el, i) => {
-      const isLead = i === 0;
-      gsap.to(el, {
-        x: x,
-        y: y,
-        duration: isLead ? CONFIG.fastDuration : CONFIG.slowDuration,
-        ease: isLead ? CONFIG.fastEase : CONFIG.slowEase,
-      });
-    });
+    state.targetX = e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? state.targetX;
+    state.targetY = e.clientY ?? (e.touches && e.touches[0]?.clientY) ?? state.targetY;
+  }
+
+  function checkInteractiveTarget(target) {
+    if (!target || !target.closest) {
+      state.interactive = false;
+      return;
+    }
+    state.interactive = !!target.closest(
+      "a,button,input,textarea,select,[role='button'],.project-card,.hero-action,.hero-cta"
+    );
   }
 
   document.addEventListener("mousemove", onMove);
+  document.addEventListener("mouseover", (e) => checkInteractiveTarget(e.target));
   document.addEventListener("touchmove", (e) => {
     if (e.touches.length) onMove(e.touches[0]);
   }, { passive: true });
+  document.addEventListener("touchstart", (e) => {
+    if (e.touches.length) onMove(e.touches[0]);
+  }, { passive: true });
+
+  gsap.ticker.add(() => {
+    const lerpValues = [CONFIG.leadLerp, CONFIG.midLerp, CONFIG.tailLerp];
+
+    points.forEach((p, i) => {
+      const prevX = p.x;
+      const prevY = p.y;
+      const followX = i === 0 ? state.targetX : points[i - 1].x;
+      const followY = i === 0 ? state.targetY : points[i - 1].y;
+      const lerp = lerpValues[i] || CONFIG.tailLerp;
+
+      p.x += (followX - p.x) * lerp;
+      p.y += (followY - p.y) * lerp;
+      p.vx = p.x - prevX;
+      p.vy = p.y - prevY;
+
+      let stretchX = 1;
+      let stretchY = 1;
+      let rotate = 0;
+
+      if (i === 0) {
+        const speed = Math.hypot(p.vx, p.vy);
+        const stretch = Math.min(CONFIG.maxStretch, speed / 32);
+        stretchX = 1 + stretch + (state.interactive ? 0.09 : 0);
+        stretchY = 1 - stretch * 0.75;
+        rotate = Math.max(
+          -CONFIG.maxRotateDeg,
+          Math.min(CONFIG.maxRotateDeg, (Math.atan2(p.vy, p.vx) * 180) / Math.PI)
+        );
+      } else if (state.interactive) {
+        stretchX = 1.05;
+        stretchY = 0.96;
+      }
+
+      gsap.set(blobs[i], {
+        x: p.x,
+        y: p.y,
+        scaleX: stretchX,
+        scaleY: stretchY,
+        rotation: rotate,
+      });
+    });
+  });
 
   /* Hide on mobile / small screens where a cursor doesn't make sense */
   function checkVisibility() {
-    wrapper.style.display = window.innerWidth < 768 ? "none" : "block";
+    const shouldHide =
+      window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches;
+    wrapper.style.display = shouldHide ? "none" : "block";
   }
   checkVisibility();
   window.addEventListener("resize", checkVisibility);
