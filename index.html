@@ -32,7 +32,9 @@
         --panel-light: rgba(255, 255, 255, 0.7);
         --line-dark: rgba(163, 151, 125, 0.2);
         --line-light: rgba(88, 60, 49, 0.2);
-        --antigravity-color: #f5ec00;
+        --liquid-c1: #5227ff;
+        --liquid-c2: #ff9ffc;
+        --liquid-c3: #b19eef;
         --font-ui: "Space Grotesk", "Manrope", sans-serif;
       }
 
@@ -220,8 +222,9 @@
         inset: 0;
         z-index: 0;
         pointer-events: none;
-        opacity: 0.92;
-        mix-blend-mode: screen;
+        opacity: 0.96;
+        mix-blend-mode: plus-lighter;
+        filter: saturate(120%) contrast(108%);
       }
       #antigravity-container canvas {
         display: block;
@@ -555,8 +558,12 @@
         letter-spacing: 0.18em;
       }
       .education-section > .section-header {
-        background: rgba(88, 60, 49, 0.72);
-        border: 1px solid rgba(248, 248, 248, 0.12);
+        background: rgba(163, 151, 125, 0.9);
+        border: 1px solid rgba(163, 151, 125, 0.55);
+      }
+      .light .education-section > .section-header {
+        background: rgba(214, 200, 177, 0.92);
+        border-color: rgba(88, 60, 49, 0.22);
       }
       .education-section .edu-card {
         width: 100% !important;
@@ -572,6 +579,29 @@
       }
       .light .education-section .edu-card {
         border-color: rgba(88, 60, 49, 0.2);
+      }
+
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(32px);
+        transition:
+          opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: opacity, transform;
+      }
+      .reveal-on-scroll.reveal-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-on-scroll.reveal-left {
+        transform: translateX(-36px);
+      }
+      .reveal-on-scroll.reveal-right {
+        transform: translateX(36px);
+      }
+      .reveal-on-scroll.reveal-left.reveal-visible,
+      .reveal-on-scroll.reveal-right.reveal-visible {
+        transform: translateX(0);
       }
 
       .resume-section .experience-grid {
@@ -635,7 +665,9 @@
       }
 
       .light {
-        --antigravity-color: #6b4b2c;
+        --liquid-c1: #6b4b2c;
+        --liquid-c2: #d6a3b2;
+        --liquid-c3: #9c8bb6;
       }
       .site-footer .footer-links {
         width: min(100%, 330px) !important;
@@ -648,12 +680,14 @@
 
       /* Homepage modern refresh */
       .hero-section {
-        align-items: stretch;
+        align-items: center;
         gap: clamp(1.2rem, 4vw, 2.4rem);
         padding-top: clamp(2rem, 6vw, 4rem);
+        display: grid;
+        grid-template-columns: 1fr;
       }
       .hero-copy {
-        max-width: 720px;
+        max-width: 760px;
         width: 100%;
         padding: clamp(1.1rem, 2.6vw, 2rem);
         border: 1px solid rgba(163, 151, 125, 0.28);
@@ -663,6 +697,7 @@
           rgba(0, 0, 0, 0.44);
         backdrop-filter: blur(10px);
         box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        justify-self: center;
       }
       .light .hero-copy {
         border-color: rgba(88, 60, 49, 0.24);
@@ -671,16 +706,19 @@
           rgba(248, 248, 248, 0.45);
       }
       .hero-profile-ring {
-        width: clamp(220px, 36vw, 380px);
-        height: clamp(220px, 36vw, 380px);
+        width: clamp(220px, 40vw, 320px);
+        aspect-ratio: 4 / 5;
+        height: auto;
         border-radius: 1.8rem;
         padding: 0;
         border: 1px solid rgba(163, 151, 125, 0.45);
         overflow: hidden;
+        justify-self: center;
       }
       .hero-profile-ring img {
         border-radius: 1.8rem;
-        object-position: center top;
+        object-fit: cover;
+        object-position: center 18%;
       }
       .hero-greeting {
         display: inline-flex;
@@ -794,12 +832,19 @@
       }
 
       @media (min-width: 900px) {
-        .hero-copy {
-          order: 1;
+        .hero-section {
+          grid-template-columns: minmax(260px, 330px) minmax(0, 1fr);
+          align-items: center;
+          column-gap: clamp(1.2rem, 4vw, 3rem);
+          text-align: left;
         }
         .hero-profile-ring {
-          order: 2;
-          margin-left: auto;
+          width: min(100%, 330px);
+          justify-self: start;
+        }
+        .hero-copy {
+          max-width: 700px;
+          justify-self: stretch;
         }
         .hero-cta-group {
           justify-content: flex-start;
@@ -1211,13 +1256,13 @@
       </div>
     </section>
     <section
-      class="bg-accent py-5 px-3 lg:px-6 section-stack education-section"
+      class="bg-dark py-5 px-3 lg:px-6 section-stack education-section"
     >
       <div
-        class="bg-accent py-4 w-full border-b-accent shadow-md section-header"
+        class="bg-card-front py-4 w-full border-b-accent shadow-md section-header"
       >
         <p
-          class="text-4xl font-dotgothic tracking-widest uppercase text-left text-light"
+          class="text-4xl font-dotgothic tracking-widest uppercase text-left text-dark"
         >
           Education
         </p>
@@ -1810,8 +1855,9 @@
 
     <!-- Mobile menu -->
     <script src="./scripts/mobile-menu.js" defer></script>
-    <!-- Antigravity particles (Three.js) -->
-    <script src="./scripts/antigravity.js" defer></script>
+    <script src="./scripts/home-reveal.js" defer></script>
+    <!-- Liquid ether hero animation (Three.js) -->
+    <script src="./scripts/liquid-ether-home.js" defer></script>
     <!-- Blob cursor (GSAP) -->
     <script src="./scripts/blobcursor.js" defer></script>
   </body>
