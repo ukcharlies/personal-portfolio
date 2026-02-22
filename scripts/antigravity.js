@@ -10,7 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ---------- helpers ---------- */
   function getThemeColor() {
     const style = getComputedStyle(document.documentElement);
-    return style.getPropertyValue("--color-primary").trim() || "#f5ec00";
+    return (
+      style.getPropertyValue("--antigravity-color").trim() ||
+      style.getPropertyValue("--color-primary").trim() ||
+      "#f5ec00"
+    );
   }
 
   /* ---------- config ---------- */
@@ -46,10 +50,16 @@ document.addEventListener("DOMContentLoaded", function () {
   container.appendChild(renderer.domElement);
 
   /* ---------- material (theme aware) ---------- */
-  const material = new THREE.MeshBasicMaterial({ color: getThemeColor() });
+  const material = new THREE.MeshBasicMaterial({
+    color: getThemeColor(),
+    transparent: true,
+    opacity: 0.95,
+  });
 
-  /* capsule-like geometry: a sphere stretched on Y works well */
-  const geometry = new THREE.CapsuleGeometry(0.1, 0.4, 4, 8);
+  const geometry =
+    typeof THREE.CapsuleGeometry === "function"
+      ? new THREE.CapsuleGeometry(0.1, 0.4, 4, 8)
+      : new THREE.SphereGeometry(0.2, 10, 10);
 
   const mesh = new THREE.InstancedMesh(geometry, material, CONFIG.count);
   scene.add(mesh);
