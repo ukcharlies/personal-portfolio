@@ -266,23 +266,15 @@
         min-height: calc(100vh - var(--nav-height));
         max-width: var(--content-max);
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
         padding: clamp(1.2rem, 4vw, 3rem) clamp(1rem, 4vw, 2.8rem) 3rem;
-        gap: clamp(1.6rem, 5vw, 4rem);
+        text-align: center;
       }
       .hero-copy {
         max-width: 620px;
       }
       @media (min-width: 920px) {
         .hero-section {
-          flex-direction: row;
-          align-items: center;
           text-align: left;
-          justify-content: space-between;
         }
       }
 
@@ -687,7 +679,7 @@
         grid-template-columns: 1fr;
       }
       .hero-copy {
-        max-width: 760px;
+        max-width: 680px;
         width: 100%;
         padding: clamp(1.1rem, 2.6vw, 2rem);
         border: 1px solid rgba(163, 151, 125, 0.28);
@@ -706,7 +698,7 @@
           rgba(248, 248, 248, 0.45);
       }
       .hero-profile-ring {
-        width: clamp(220px, 40vw, 320px);
+        width: clamp(200px, 36vw, 300px);
         aspect-ratio: 4 / 5;
         height: auto;
         border-radius: 1.8rem;
@@ -740,18 +732,18 @@
         box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.22);
       }
       .hero-name {
-        font-size: clamp(2.4rem, 8vw, 5.2rem);
+        font-size: clamp(2.4rem, 8vw, 4.6rem);
         letter-spacing: -0.03em;
       }
       .hero-role {
         margin-top: 0.25rem;
-        font-size: clamp(1.8rem, 5.4vw, 3.6rem);
+        font-size: clamp(1.8rem, 5.4vw, 3.2rem);
       }
       .hero-intro {
         margin: 1rem 0 0;
-        font-size: clamp(0.97rem, 2.1vw, 1.12rem);
+        font-size: clamp(0.97rem, 1.8vw, 1.05rem);
         line-height: 1.76;
-        max-width: 62ch;
+        max-width: 52ch;
         opacity: 0.93;
       }
       .hero-tagline {
@@ -772,7 +764,7 @@
       .hero-stat-strip {
         margin-top: 1.2rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 0.55rem;
       }
       .hero-stat-card {
@@ -805,7 +797,9 @@
       .education-section .edu-card,
       .resume-section .experience-row,
       .contact-section .contact-card {
-        transition: transform 0.26s ease, box-shadow 0.26s ease;
+        transition:
+          transform 0.26s ease,
+          box-shadow 0.26s ease;
       }
       .skills-section .grid.grid-cols-2 > div > .w-full:hover,
       .education-section .edu-card:hover,
@@ -833,25 +827,50 @@
 
       @media (min-width: 900px) {
         .hero-section {
-          grid-template-columns: minmax(260px, 330px) minmax(0, 1fr);
-          align-items: center;
-          column-gap: clamp(1.2rem, 4vw, 3rem);
+          grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+          align-items: start;
+          column-gap: clamp(1.8rem, 4vw, 3.2rem);
+          padding-top: clamp(3rem, 6vw, 5rem);
           text-align: left;
         }
         .hero-profile-ring {
-          width: min(100%, 330px);
+          width: 100%;
+          max-width: 280px;
           justify-self: start;
+          position: sticky;
+          top: calc(var(--nav-height) + 2rem);
         }
         .hero-copy {
-          max-width: 700px;
+          max-width: 100%;
           justify-self: stretch;
         }
         .hero-cta-group {
           justify-content: flex-start;
         }
+        .hero-intro {
+          max-width: 48ch;
+        }
         .skills-section .grid.grid-cols-2 {
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 1.25rem;
+        }
+      }
+
+      @media (min-width: 1100px) {
+        .hero-section {
+          grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
+          column-gap: clamp(2.4rem, 5vw, 4rem);
+          padding-left: clamp(1.5rem, 4vw, 3rem);
+          padding-right: clamp(1.5rem, 4vw, 3rem);
+        }
+        .hero-profile-ring {
+          max-width: 300px;
+        }
+        .hero-name {
+          font-size: 4rem;
+        }
+        .hero-role {
+          font-size: 2.8rem;
         }
       }
 
@@ -947,9 +966,9 @@
             <span class="hero-role font-dotgothic">Software Engineer.</span>
           </h1>
           <p class="hero-intro">
-            I design and ship full-stack digital products with clean
-            architecture, fast interfaces, and production-focused engineering
-            for startups and enterprise teams.
+            I build full-stack web applications that are fast, secure, and built
+            to last turning real problems into clean, reliable software people
+            actually enjoy using.
           </p>
           <p class="hero-tagline">
             Crafting code today · Shaping tomorrow's future
@@ -1004,25 +1023,29 @@
         <div class="about-glass">
           <div class="about-divider"></div>
           <p>
-            I'm a software engineer skilled in the PERN stack (PostgreSQL,
-            Express, React, Node.js) with a strong foundation in frontend
-            engineering and UI development. I build responsive, user-friendly,
-            and secure web applications tailored to real-world needs.
+            I'm a software engineer with hands-on experience across the full
+            stack from crafting clean, responsive interfaces to designing
+            secure, scalable backend systems. I work with the PERN stack
+            (PostgreSQL, Express, React, Node.js) and know my way around HTML,
+            Tailwind CSS, TypeScript, Next.js, NestJS and REST API design.
+            Whether it's a sleek UI or a production API serving real users, I
+            care about getting it right.
           </p>
           <br />
           <p>
-            From building clean, accessible interfaces with HTML, Tailwind CSS,
-            and JavaScript to architecting robust backend systems and RESTful
-            APIs with the PERN stack, I bring a versatile full-stack approach to
-            every project. With added knowledge in application security and
-            basic cybersecurity, I prioritize both performance and
-            protection—implementing secure authentication, data validation, and
-            best coding practices.
+            Security isn't an afterthought for me...it's baked into how I build.
+            I implement JWT authentication, bcrypt password hashing, input
+            validation, and HTTPS best practices as standard. Clients trust me
+            with their products because I treat their users' data the way I'd
+            want mine treated: with respect and protection at every layer.
           </p>
           <br />
           <p>
-            I'm passionate about problem-solving, clean code, and creating
-            seamless digital experiences that leave an impact.
+            I've contributed to enterprise systems, fintech APIs, and
+            open-source tools and each project has sharpened my commitment to
+            clean code, thoughtful architecture, and work that holds up under
+            real-world pressure. If you're building something meaningful, I'd
+            love to be part of it.
           </p>
 
           <div class="about-socials">
@@ -1255,9 +1278,7 @@
         </div>
       </div>
     </section>
-    <section
-      class="bg-dark py-5 px-3 lg:px-6 section-stack education-section"
-    >
+    <section class="bg-dark py-5 px-3 lg:px-6 section-stack education-section">
       <div
         class="bg-card-front py-4 w-full border-b-accent shadow-md section-header"
       >
@@ -1791,9 +1812,7 @@
       >
         let's build something real
       </p>
-      <p class="capitalize text-center">
-        copyright &copy; ukachi charles 2026
-      </p>
+      <p class="capitalize text-center">copyright &copy; ukachi charles 2026</p>
       <div
         class="flex justify-between items-center w-1/2 mx-auto capitalize pt-2 footer-links"
       >
